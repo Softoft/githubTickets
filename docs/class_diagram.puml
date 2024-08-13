@@ -1,0 +1,13 @@
+@startuml
+
+class Issue{
+  + title: str
+  + comments: list[str]
+  + user: str
+
+class GithubRepoFetcher{
+  - repo: str
+  - filter_conditions: list[str]
+  + search_issues(): list[Issue]
+ }
+@enduml

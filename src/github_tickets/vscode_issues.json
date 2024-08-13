@@ -1,0 +1,388 @@
+[
+  {
+    "title": "Completing yarn.cmd from \"yarn\" should run the command",
+    "url": "https://github.com/microsoft/vscode/issues/224485",
+    "author_name": "Tyriar",
+    "question_body": "Repro:\r\n\r\n1. Windows/pwsh\r\n2. Enable suggest\r\n3. Type `yarn`, you should see yarn.<somethign> as the top result\r\n4. Press enter, \ud83d\udc1b the completion is entered but it should also be run due to the `runOnEnter` default\r\n\r\n![Recording 2024-08-01 at 08 08 28](https://github.com/user-attachments/assets/08a3b1dd-2e16-449c-ba0a-145b8c313420)\r\n",
+    "labels": [
+      "bug",
+      "unreleased",
+      "terminal-suggest"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-08-01T15:09:40",
+    "first_answer_author": "vs-code-engineering[bot]",
+    "first_answer_body": "<!-- UNABLE_TO_LOCATE_COMMIT_MESSAGE -->\n\t\t\tIssue marked as unreleased but unable to locate closing commit in issue timeline. You can manually reference a commit by commenting `\\closedWith someCommitSha`, or directly add the `insiders-released` label if you know this has already been releaased",
+    "first_answer_creation_time": "2024-08-02T06:56:50",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Terminal suggest: Completions differ for args depending on when they are requested",
+    "url": "https://github.com/microsoft/vscode/issues/224419",
+    "author_name": "Tyriar",
+    "question_body": "Repro:\r\n\r\n- pwsh\r\n- suggest enabled\r\n- type `git cl`, suggestions show including `clean`, `clone` and `citool`\r\n    <img width=\"164\" alt=\"Screenshot 2024-07-31 at 10 56 43\u202fAM\" src=\"https://github.com/user-attachments/assets/97890e89-0101-42b4-8233-cf9dc1e3eb2d\">\r\n- press escape\r\n- press ctrl+space, \ud83d\udc1b suggestions should be the same but now don't include `citool`\r\n    <img width=\"118\" alt=\"Screenshot 2024-07-31 at 10 56 51\u202fAM\" src=\"https://github.com/user-attachments/assets/43202209-f9e8-4124-968f-f4439b177cd2\">\r\n",
+    "labels": [
+      "bug",
+      "terminal-suggest"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-31T17:57:20",
+    "first_answer_author": "vs-code-engineering[bot]",
+    "first_answer_body": "<!-- UNABLE_TO_LOCATE_COMMIT_MESSAGE -->\n\t\t\tIssue marked as unreleased but unable to locate closing commit in issue timeline. You can manually reference a commit by commenting `\\closedWith someCommitSha`, or directly add the `insiders-released` label if you know this has already been releaased",
+    "first_answer_creation_time": "2024-07-31T23:27:30",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Terminal suggest: Typing `-` in `cherry-` dismisses matching git suggestions",
+    "url": "https://github.com/microsoft/vscode/issues/223883",
+    "author_name": "Tyriar",
+    "question_body": "- Windows/pwsh\r\n- Suggest enabled\r\n- Type `git cherry`, you should see completions for cherry-pick\r\n- Type `-`, \ud83d\udc1b the suggest widget hides\r\n\r\n![Recording 2024-07-26 at 06 15 31](https://github.com/user-attachments/assets/e9c7b867-d6a8-43c2-8560-e4b9c123556f)\r\n",
+    "labels": [
+      "bug",
+      "terminal-suggest"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-26T13:16:42",
+    "first_answer_author": "vs-code-engineering[bot]",
+    "first_answer_body": "<!-- UNABLE_TO_LOCATE_COMMIT_MESSAGE -->\n\t\t\tIssue marked as unreleased but unable to locate closing commit in issue timeline. You can manually reference a commit by commenting `\\closedWith someCommitSha`, or directly add the `insiders-released` label if you know this has already been releaased",
+    "first_answer_creation_time": "2024-07-31T23:28:02",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Unsure about when to expect suggestions to automatically appear",
+    "url": "https://github.com/microsoft/vscode/issues/223420",
+    "author_name": "andreamah",
+    "question_body": "Testing #223130\n\nI notice that sometimes, I need to trigger the suggest widget manually (ctrl+space). For example, I have` git add .\\.vscode\\notebooks\\` typed, and I need to ctrl+space to see the filenames.",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "terminal-suggest"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-23T22:55:02",
+    "first_answer_author": "Tyriar",
+    "first_answer_body": "Can repro. This isn't meant to be possible as completions should be requested again after the `\\` is typed:\r\n\r\n![image](https://github.com/user-attachments/assets/9d18e808-ce1a-40f6-934c-5547cca7075f)\r\n",
+    "first_answer_creation_time": "2024-07-24T13:42:31",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "NVDA reads REPL as 'replace'",
+    "url": "https://github.com/microsoft/vscode/issues/223350",
+    "author_name": "andreamah",
+    "question_body": "Testing #222238\n\nNot sure whether this is something in your control, but I noticed that NVDA reads REPL as replace when it's reading this:\n\n![Image](https://github.com/user-attachments/assets/79efa574-894e-44a8-b15f-e693c2eadde4)\n\nMight be a bit confusing. ",
+    "labels": [
+      "bug",
+      "verified",
+      "accessibility",
+      "polish",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-23T16:34:59",
+    "first_answer_author": "meganrogge",
+    "first_answer_body": "Strange, but yeah, I can work around this by removing the acronym. \n\nNote to self and testers: this appears in both the debug console and debug view's accessibility help dialogs.",
+    "first_answer_creation_time": "2024-07-23T20:39:53",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Handling of cells outside of viewport",
+    "url": "https://github.com/microsoft/vscode/issues/223344",
+    "author_name": "kieferrm",
+    "question_body": "Testing #223152\n\n1) select two cells\n2) scroll the lower cell (cell 2) out of the viewport\n3) cmd+/ \n4) scroll cell 2 partially into the viewport -> only cell 1 has been commented\n5) cmd+/ -> cell 1 has been uncommented, cell 2 has been commented\n\nAfter step 3 I'd expect both cells to be commented and after step 5 both to be uncommented",
+    "labels": [
+      "bug",
+      "notebook-commands"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-23T16:11:51",
+    "first_answer_author": "Yoyokrazy",
+    "first_answer_body": "Need to move the toggle comments action off of the editor command. Case is simpler overall since we are not operating on cursors or a specific selection. \r\n\r\nRelying on `editor.executeCommands()` is the limitation, as we don't have editors outside of the viewport. We can construct these edits in a similar way to a `LineCommentCommand` and simply apply them to the model, allowing us to apply to cells outside of the viewport",
+    "first_answer_creation_time": "2024-07-25T22:34:56",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Settings URL handling - \"Open Current File as Release Notes\" command not working",
+    "url": "https://github.com/microsoft/vscode/issues/223291",
+    "author_name": "lszomoru",
+    "question_body": "Testing #223027\n\n* Created a new Markdown file - test.md\n* Added the release notes sample to the file and saved it\n* Invoked the \"Open Current File as Release Notes\" command and it failed\n      ![Image](https://github.com/user-attachments/assets/3daa0820-1363-4dc6-ada8-07fdab1ff87f)\n\nNot seeing anything in the developer tools console nor in the various output channel logs.",
+    "labels": [
+      "bug",
+      "verified",
+      "release-notes",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-23T10:49:12",
+    "first_answer_author": "alexr00",
+    "first_answer_body": "I think that the document can't start with a header like that. To unblock testing, you can modify one of the existing release notes to include something similar to the example.",
+    "first_answer_creation_time": "2024-07-23T11:57:12",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "How to close the annoying terminal status window, which show  information about PID, etc.?",
+    "url": "https://github.com/microsoft/vscode/issues/221531",
+    "author_name": "ZedRover",
+    "question_body": "<!-- \u26a0\ufe0f\u26a0\ufe0f Do Not Delete This! feature_request_template \u26a0\ufe0f\u26a0\ufe0f -->\r\n<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->\r\n<!-- Please search existing issues to avoid creating duplicates. -->\r\n\r\n<!-- Describe the feature you'd like. -->\r\nI use Visual Studio Code to edit code on my MacOS. I often utilize VSCode Remote to run some Python code on a server. I usually open multiple terminal windows to conveniently view different code results. However, I frequently encounter the issue of being unable to select a specific terminal from the terminal tabs because that annoying terminal status windows always appears under my cursor when I move my mouse over a terminal, blocking my selection of the corresponding window. This fucking window moves very quickly, and I often find myself in the awkward situation of being unable to select the terminal. I wish I could completely disable this utterly useless prompt window.\r\n\r\n<img width=\"523\" alt=\"image\" src=\"https://github.com/user-attachments/assets/122b5db6-12ab-4167-ba50-c3ff610a7bdd\">\r\n\r\n\r\n",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "terminal-tabs"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-12T05:54:54",
+    "first_answer_author": "Tyriar",
+    "first_answer_body": "From the thick border it looks like you're holding alt which will [lock its visibility}(https://code.visualstudio.com/docs/editor/accessibility#_hover-accessibility). But regardless, I agree we could position it better.",
+    "first_answer_creation_time": "2024-07-12T17:20:38",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Breakpoints stuck under line numbers",
+    "url": "https://github.com/microsoft/vscode/issues/221478",
+    "author_name": "lramos15",
+    "question_body": "I notice on the latest insiders now when I start and stop debugging the breakpoints are ending up below the line numbers instead of the gutter\n\n\n\n![Image](https://github.com/user-attachments/assets/7d8c4836-b50c-4464-9ba2-9c85bac44861)\n\n",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-11T15:36:15",
+    "first_answer_author": "connor4312",
+    "first_answer_body": "@justschen this CSS rule applies to all glyph margin widgets, maybe you want to scope it more specifically for the lightbulb widget?\r\n\r\nhttps://github.com/microsoft/vscode/blob/31f831310c643ae03c4b84124b5a427d0bed0483/src/vs/editor/contrib/codeAction/browser/lightBulbWidget.css#L48-L53\r\n\r\nThis is overriding what was the [default styling](https://github.com/microsoft/vscode/blob/31f831310c643ae03c4b84124b5a427d0bed0483/src/vs/editor/browser/viewParts/glyphMargin/glyphMargin.css#L11-L20) for glyph margin widgets.",
+    "first_answer_creation_time": "2024-07-11T15:53:35",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "VS Code 1.91 does not respect SourceControl.count",
+    "url": "https://github.com/microsoft/vscode/issues/221450",
+    "author_name": "Viknet",
+    "question_body": "\nType: <b>Bug</b>\n\nStarting with version 1.91.0, the count badge on the Source Control icon no longer takes into account the `SourceControl.count` value and instead counts all SourceControlResourceGroup.\n\nSteps to reproduce:\n1. Set `git.countBadge` to \"tracked\"\n2. Create new untracked file in Git repository\n\nVS Code version: Code 1.91.0 (Universal) (ea1445cc7016315d0f5728f8e8b12a45dc0a7286, 2024-07-01T18:54:18.541Z)\nOS version: Darwin arm64 23.5.0\nModes:\n\n<details>\n<summary>System Info</summary>\n\n|Item|Value|\n|---|---|\n|CPUs|Apple M1 Pro (10 x 2400)|\n|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled|\n|Load (avg)|2, 4, 4|\n|Memory (System)|32.00GB (1.32GB free)|\n|Process Argv|--enable-proposed-api jeanp413.open-remote-ssh --crash-reporter-id 481d6038-57fa-4033-9fd6-30428eae7833|\n|Screen Reader|no|\n|VM|0%|\n</details>Extensions: none\n<!-- generated by issue reporter -->",
+    "labels": [
+      "bug",
+      "verified",
+      "git"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-11T08:13:37",
+    "first_answer_author": "Viknet",
+    "first_answer_body": "It is not fixed in 1.91.1\r\n\r\nUPD: I see, it is fixed in insiders build 1.92.0.\r\nThank you!\r\n\r\n<img width=\"845\" alt=\"Screenshot 2024-07-22 at 13 56 23\" src=\"https://github.com/user-attachments/assets/7dda35ef-fc10-4a83-b7df-a147d3303bcd\">\r\n\r\n<details>\r\n  <summary>About</summary>\r\nVersion: 1.91.1 (Universal)\r\nCommit: f1e16e1e6214d7c44d078b1f0607b2388f29d729\r\nDate: 2024-07-09T22:07:54.982Z\r\nElectron: 29.4.0\r\nElectronBuildId: 9728852\r\nChromium: 122.0.6261.156\r\nNode.js: 20.9.0\r\nV8: 12.2.281.27-electron.0\r\nOS: Darwin arm64 23.5.0\r\n</details>",
+    "first_answer_creation_time": "2024-07-22T11:00:16",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Action button in quick input menu is not aligned ",
+    "url": "https://github.com/microsoft/vscode/issues/221335",
+    "author_name": "jmg-duarte",
+    "question_body": "<!-- \u26a0\ufe0f\u26a0\ufe0f Do Not Delete This! bug_report_template \u26a0\ufe0f\u26a0\ufe0f -->\r\n<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->\r\n<!-- \ud83d\udd6e Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->\r\n<!-- \ud83d\udd0e Search existing issues to avoid creating duplicates. -->\r\n<!-- \ud83e\uddea Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->\r\n<!-- \ud83d\udca1 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->\r\n<!-- \ud83d\udd27 Launch with `code --disable-extensions` to check. -->\r\nDoes this issue occur when all extensions are disabled?: Yes/No\r\n\r\n<!-- \ud83e\ude93 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->\r\n<!-- \ud83d\udce3 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->\r\n- VS Code Version: 1.91.0\r\n- OS Version: MacOS Sonoma 14.5\r\n\r\nSteps to Reproduce:\r\n\r\n1. `Ctrl+R`\r\n2. Hover the action button\r\n3. See everything disaligned \r\n\r\n<img width=\"46\" alt=\"Screenshot 2024-07-10 at 09 48 44\" src=\"https://github.com/microsoft/vscode/assets/15343819/82f7899b-7545-45cc-9f7d-7471581f3495\">\r\n\r\nBigger and more demonstrative example\r\n<img width=\"86\" alt=\"Screenshot 2024-07-10 at 09 52 00\" src=\"https://github.com/microsoft/vscode/assets/15343819/b1da444e-795f-4bcf-9b8b-faad4d1b789a\">\r\n",
+    "labels": [
+      "bug",
+      "verified",
+      "quick-pick",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-07-10T08:52:33",
+    "first_answer_author": "tomasalagoa",
+    "first_answer_body": "I seem to have the same issue on Windows 11, ~though in my case I cannot reproduce the cogwheel problem~.\r\nThe cogwheel icon has the same issue.\r\n\r\nVS Code Version: 1.91.1\r\nOS Version: Windows_NT x64 10.0.22621\r\n\r\n![Misaligned](https://github.com/user-attachments/assets/69935f81-3d78-434a-8b82-87d92aae8dc3)\r\n\r\n![Misaligned2](https://github.com/user-attachments/assets/06024c26-6184-41fb-96f4-1f0079ce8bf2)\r\n\r\n",
+    "first_answer_creation_time": "2024-07-12T07:59:21",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Bold text is streamed with asterisks and changed to bold font later + thinking icon flickers as it is turning",
+    "url": "https://github.com/microsoft/vscode/issues/217946",
+    "author_name": "aiday-mar",
+    "question_body": "Testing #217639\r\n\r\nI created a new notebook with the `/newNotebook` command. As the response is streaming in, you see bold text streamed in with asterisks in front, when the closing asterisks are found, the corresponding text is changed to bold text. I am wondering if this can somehow be changed so that we directly stream in bold text on encountering asterisks?\r\n\r\nAfter the text is streamed in, there is a turning circular icon that appear that has the associated text `thinking`. The icon flickers as it is turning. The icon movement is not smooth.\r\n\r\nhttps://github.com/microsoft/vscode/assets/61460952/832d4bf5-ed42-462f-9cce-16f62f9f9f52\r\n\r\nThe log in the Window output is appended here.\r\n\r\n[testing4.docx](https://github.com/user-attachments/files/15969923/testing4.docx)\r\n",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "chat"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-06-25T10:55:55",
+    "first_answer_author": "roblourens",
+    "first_answer_body": "Problem 1: we fix up markdown lists that use `-` and numbers, but not `*` \ud83d\ude20 \n\nProblem 2: the intent is sending duplicate progress events: https://github.com/microsoft/vscode-copilot/issues/6482",
+    "first_answer_creation_time": "2024-06-26T18:03:13",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Undo triggers strange ghost text suggestion",
+    "url": "https://github.com/microsoft/vscode/issues/216434",
+    "author_name": "joaomoreno",
+    "question_body": "1. Open https://github.com/microsoft/vscode/blob/a8e00a00ddd047fd5346408b434bcc67956754ee/src/vs/base/node/unc.js#L29\r\n2. Select `Set`, replace with `Map`\r\n3. Undo\r\n\r\n\ud83d\udc1b Ghost text suggestion pops up strangely spreading the letters of `Set` within the suggestion.\r\n\r\nhttps://github.com/user-attachments/assets/d95f3d93-b2db-40a2-8159-a1bef0b1829d\r\n\r\n",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "inline-completions"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-06-18T09:51:40",
+    "first_answer_author": "hediet",
+    "first_answer_body": "To verify:\r\n* [Open this playground](https://microsoft.github.io/monaco-editor/playground.html?source=v0.50.0-dev-20240620&compareWith=v0.51.0-dev-20240621#XQAAAAKhFQAAAAAAAABBqQkHQ5NjdMjwa-jY7SIQ9S7DNlzs5W-mwj0fe1ZCDRFc9ws9XQE0SJE1jc2VKxhaLFIw9vEWSxW3yscxjlADRgmSaumWUF-TBOsVJ4S4FwfCDQb5-2uUHXTVAefbVSd9IzaZ_vv9VR9KugsKicUBqzt3JtKN8DfDx5R0r3ur2s54RBykaL4piZfz98N2xRf8gz92yhPCtslOlXZhOEcMeAyC_9QkQRuyxDUWy2d9tCOcmfEt3MxdHBoUe53CzTleB4ALPojvlvGzVvX8ODhXjkl4ORiXsyaxzwS8AnxPm8blXyeCOiVYuODdTlQKHw0j01cCDOwMyQYBJucqHoA62MYy1qI3pfW1uxhZrpR2IUVj54lYetQyzSo4tS9nFYQTUitI9f5QBOA3maen1QvbvMdqtla3xtk8zWgBZsOmf-d8T1qGD7kxtzPfeNnndn_1CUQolZm56o1j3kUnM8fQ7Hs6rJRW6QLg7sEUGvNagBidQYCxIOFqRxdNi5mar9E-SHTMxKZBO4oeoJGv4Tue_GY--92_e3FKD4sbGKB8kDWRi9Oz1f1DaapHE_ZZr70rVqcUfv2H1NE5__2Uo6Pbw7dieThDq7BJeSb4JuThS74HmDvzic1PG9v-NJTckAh8fzhkpP-uW9E3vRwURawkj5wZ3hVUNKJNwggeFVTnLOVBWZWqjeCkZ59dBXzrp0uJS56GA0SCR6Hnzc0Bh71Qg5qQ_1jXWYSTX78wntbH3bxdL8jtlzse7YHIv4PYxamNhk9833qHMl0REs5pMGXZq8LTs-iapNTx3UOmK6Y_g-QERG7oWnHbbahQu_ieQuwRt-aQ3I45pkt1uuL60QUyOxR4N1gYMinjwd0T40DqwlQjxVnhHVp3q6WGD5jRNf_1ewGCN9rH8uE3N_sfWQNOLabaIYAvGNBGPeU5G08N0i-M067MCJly4LWMUPoMQ3sGCqv905AXQdpCu_oRbxx_LW5V-MpFxjLABYpktT7AgXtqkxgjIU1OAesR0LdeuZdZcF8knyuHOLorpDFsk0v9pqdGUsphmTi9bXMWROEIAT5YIDn8f3ZcMM-QiHF5TXh_vF585a4FbDpN7mAXy9sJFSeew1F0eO-IWQqEQEn0fpCIHR17cBP_U9d5VefthgZ55DO3UtS4Pj3wfr2KuqpOlrlX4hazhwIfeDLRjw0_eLkte-zIbsR99_ZdxAXMYYUhawZ3ocTIYGqlyafjHhw-a8xjr_TV36UyK0NW7M-X1XIhh8AdUGrPhdF-P-secKCrMQLzfsrLhzTDHAUWLiLP272O9jxe7IWaxh-IIdTFFhT9dbWG01xrJPKytkVsJpGJ_heJ0zPiLKq-W8qVXMNjA40CXRjhKpcmI_aOFXTJ4EysnRALyN7r3LvE7vEcTsOmX_X0qsyox6saZLnfyG7v7V054x3Pq2wAIQuAo8cgOSJkEzI1IqTc_4mWEug2Irh4H2Hd4CI7xVWUtEv8dKMdUYt828S7cEwwoOqVfB0-nhzokmy5xsddiakjHKqkh_i_x_2FzYgIAG0qvwny4g9DSqEZ27bPaiX5OIJHwGsaxTLXBzcocRY8-j8R-QK7iJ4ptvD_jQTIoYCiRq46wRpD8tJ-4RKI7_oHscQffzy7R9rKEhfWDbCKKIi0wKt7vIxumimofQCv55ZpLdfp9QmcUWy_39COj9r0UZqT3N1s7RCByDxwAe2cAEBzlBh0LaKksUFHDdCi59wCEN54k1KSWMgUWqcswb4QD5e8-J-FFr2HbgBIYnJ0Y7rdXZ9efLfM-yo377MnDevrHcW5MhTqS3bUX3Ym9TkQplZLQYIs3TpkJVi5tmD_irNx2czYaOO22kgnFv--TzIWFZTgjk00klpF5KQ-A1eMc5QsrIi_dpwK6HGQC71ZeClYJrHE__ILwrtENVEvhxnhDrf1Keu4gbyj_1L9cypWwA6SUPxsG8L8dpBxSL8FkKUUKqW9sWlCYe6TwwgNQD4mZxfloHtY5sGp_z_zkiwegMI3CmkCOFOClEEKpfXdUprByBS8mPqPADJbWDkmRKTB3-_sEj_URqOehdoEMUq4GN_jHvvj3PKUw-TTl-OyVUBt_iEQOul1Q57r7Mb9o7K7uPLgWEljolSySj164yg3Ux3HyzJU3gUw6oD6XQ4JOgmvd7YFW1QFYFQkb-5AmOMDExgRXe9nfeG2_9s93osQUfpOcewVW54o29EYXV7hgUK_Rn0HOdsNS_3JaS1YYxDlnlNx3k72ygvxPqocvGq9UYKEcPe3Xao80vFum7CdVyK5D3uEkzLEj2u4QywXEruUbcdj__ysyn5p6o1m4NjoHVxewAlsJj0q3ytlL5XTzaKLmFGpDqnJG8QAF6XSwVlXfHJ0yFnXn2HCPzIYI_lm1ZgZBpAnlpfHAYWzyQEb5Hy07oYNi6rbVmFl8UoIKSKcjKF9-HxFKpW_jPq7QlLFJyk2NTnISThZ4XVFnVg8dmFLH4BvP7yNUp-TczpFn__tfKiF)\r\n* Double click on \"Set\" and type \"Map\", then undo.\r\n* Verify this is weird in the top editor and fixed in the bottom editor.",
+    "first_answer_creation_time": "2024-06-20T09:39:22",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "accessibility signals are broken ",
+    "url": "https://github.com/microsoft/vscode/issues/214798",
+    "author_name": "meganrogge",
+    "question_body": "Also, when `debouncePositionChanges` is `false`, there's still a delay per `accessibility.signalOptions.experimental.delays.*` which there should not be. \r\n\r\nThose should only apply when that is `true`.",
+    "labels": [
+      "bug",
+      "important",
+      "verified",
+      "accessibility",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-06-10T16:12:43",
+    "first_answer_author": "amunger",
+    "first_answer_body": "tested a few audio queues and they seem to be working. Let me know if there was something more specific to verify.",
+    "first_answer_creation_time": "2024-06-26T18:02:25",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "not specifying `maxResults` on `findTextInFiles`->`textSearchProvider` will use `MAX_INT` for `maxResults`",
+    "url": "https://github.com/microsoft/vscode/issues/214189",
+    "author_name": "andreamah",
+    "question_body": "repro steps:\r\n1. create an extension that implements `vscode.TextSearchProvider`.\r\n2. Make a call for `findTextInFiles` via a command or something in your extension. DON'T set a value for the `maxResults` option.\r\n3. Run your extension. Set a breakpoint in `provideTextSearchResults`.\r\n5. In the debugger, notice that `maxResults` is `9007199254740991`. Ideally, we have a better default maxResults (probably the default for textSearch- 20 000)",
+    "labels": [
+      "bug",
+      "api",
+      "verified",
+      "search",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-06-04T00:01:34",
+    "first_answer_author": "VSCodeTriageBot",
+    "first_answer_body": "<!-- AUTHOR_VERIFICATION_REQUEST -->\nThis bug has been fixed in the latest release of [VS Code Insiders](https://code.visualstudio.com/insiders/)!\n\n@andreamah, you can help us out by commenting `/verified` if things are now working as expected.\n\nIf things still don't seem right, please ensure you're on version 0354163c1c66b950b0762364f5b4cd37937b624a of Insiders (today's or later - you can use `Help: About` in the command palette to check), and leave a comment letting us know what isn't working as expected.\n\nHappy Coding!",
+    "first_answer_creation_time": "2024-06-26T19:09:17",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "\"Build server\" failed: Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!",
+    "url": "https://github.com/microsoft/vscode/issues/213764",
+    "author_name": "roblourens",
+    "question_body": "https://dev.azure.com/monacotools/Monaco/_build/results?buildId=275552&view=logs&j=4801dce2-64f3-53d6-b366-d49a1977c639&t=12ed9f3f-1438-5538-b0b2-7a9cf536f94d\r\n\r\n```\r\n[21:33:25] Starting 'vscode-reh-win32-x64-min-ci'...\r\n[21:33:25] Starting node ...\r\n[21:33:25] Downloading node.js 20.11.1 win32 x64 from Microsoft/vscode-node...\r\n[21:33:25] Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!\r\n[21:39:05] 'vscode-reh-win32-x64-min-ci' errored after 5.67 min\r\n[21:39:05] AbortError: This operation was aborted\r\n    at new DOMException (node:internal/per_context/domexception:53:5)\r\n    at AbortController.abort (node:internal/abort_controller:392:18)\r\n    at Timeout._onTimeout (D:\\a\\_work\\1\\s\\build\\lib\\fetch.js:44:53)\r\n    at listOnTimeout (node:internal/timers:573:17)\r\n    at process.processTimers (node:internal/timers:514:7)\r\nerror Command failed with exit code 1.\r\n```",
+    "labels": [
+      "bug",
+      "verified",
+      "vscode-build",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-29T03:43:16",
+    "first_answer_author": "deepak1556",
+    "first_answer_body": "Abort was from a network timeout, re-run should be fine for this case. However, the following is an error which has been present for a while unnoticed\r\n\r\n> Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!\r\n\r\nI will use this issue to address it.",
+    "first_answer_creation_time": "2024-05-29T04:18:43",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Missing documentation on signalOptions settings UI",
+    "url": "https://github.com/microsoft/vscode/issues/213670",
+    "author_name": "chrmarti",
+    "question_body": "Testing #213344\n\nThere no documentation on signalOptions:\n![Image](https://github.com/microsoft/vscode/assets/9205389/f173c9b1-1bc8-4c33-80e8-70e48b3b7a47)\n\nThere is some documentation on the leaf properties in the JSON, but it is unclear what `\"general\"` refers to.",
+    "labels": [
+      "bug",
+      "verified",
+      "accessibility",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-28T13:47:30",
+    "first_answer_author": "connor4312",
+    "first_answer_body": "I think the request was to have an overall description for the setting, as right now there's nothing until a user starts to complete properties in the settings.json\r\n\r\n<img width=\"636\" alt=\"image\" src=\"https://github.com/microsoft/vscode/assets/2230985/62bde016-0801-47a1-9f68-d2f60ac616b2\">\r\n",
+    "first_answer_creation_time": "2024-05-30T22:16:49",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Uncaught TypeError: Cannot read properties of undefined (reading 'activeElement')",
+    "url": "https://github.com/microsoft/vscode/issues/213649",
+    "author_name": "jrieken",
+    "question_body": "Testing #213597\r\n\r\n* open issue report on web\r\n* go the extension flow, select a extension\r\n* click into the title input field\r\n* :bug: the console shows the error below \ud83d\udc47 \r\n\r\n```\r\nUncaught TypeError: Cannot read properties of undefined (reading 'activeElement')\r\n    at ot.m (workbench.web.main.js:135:43591)\r\n    at new ot (workbench.web.main.js:135:43760)\r\n    at xe (workbench.web.main.js:135:44211)\r\n    at b.ib (workbench.web.main.js:2406:7508)\r\n    at workbench.web.main.js:2406:5805\r\n```",
+    "labels": [
+      "bug",
+      "verified",
+      "issue-reporter"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-28T10:11:54",
+    "first_answer_author": "justschen",
+    "first_answer_body": "@jrieken can you check this now? I don't see anything anymore and i believe it's fixed with the new DOM checks that just got merged to fix https://github.com/microsoft/vscode/issues/213645 ",
+    "first_answer_creation_time": "2024-05-29T23:05:01",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Ending the active session gives undefined activeStackItem even if there is another session",
+    "url": "https://github.com/microsoft/vscode/issues/213646",
+    "author_name": "sandy081",
+    "question_body": "Testing #213603\n\nHere is the extension code listening to activeStackItem\n\n```ts\ncontext.subscriptions.push(\n        vscode.debug.onDidChangeActiveStackItem(session => {\n            console.log('Active debug stack item changed: ', vscode.debug.activeStackItem);\n        })\n    );\n```\n\nSteps\n\n- Open a workspace with two python files\n- Install Python Extension\n- Open file 1 with content `print ('Hello File 1')`. Keep a break point on this line and start debugging this file. As expected break point hits and the debugging extension logs this stackItem.\n- Open file 2 with content `print ('Hello File 2')`. Keep a break point on this line and start debugging this file. As expected break point hits and the debugging extension logs this stackItem.\n- Resume the second session to continue.\n\n\ud83d\udc1b Extension logs `undefined` first for `activeStackItem` and after it logs the stack item of first session\n\n",
+    "labels": [
+      "bug",
+      "debug"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-28T10:01:36",
+    "first_answer_author": "connor4312",
+    "first_answer_body": "Thanks for the bug. This actually represents the view state accurately at the moment: we focus the session, not a thread, and this is not represented in the API. I'll see if consumers run into a case where they need this info, but unless I hear something from consumers I plan to leave as-is.",
+    "first_answer_creation_time": "2024-05-30T20:59:33",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Cannot use 'in' operator to search for 'command' in undefined",
+    "url": "https://github.com/microsoft/vscode/issues/213363",
+    "author_name": "VSCodeTriageBot",
+    "question_body": "```javascript\nTypeError: Cannot use 'in' operator to search for 'command' in undefined\nat d.value in out/vs/workbench/workbench.desktop.main.js:1876:13267\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.fire in src/vs/base/common/event.ts:1187:9\nat d.value in src/vs/platform/quickinput/browser/quickInput.ts:930:35\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.z in src/vs/base/common/event.ts:1167:9\nat s.fire in src/vs/base/common/event.ts:1191:9\nat <anonymous> in src/vs/base/common/event.ts:127:84\nat d.value in src/vs/base/common/event.ts:178:85\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.z in src/vs/base/common/event.ts:1167:9\nat s.fire in src/vs/base/common/event.ts:1191:9\nat j.filter in src/vs/platform/quickinput/browser/quickInputTree.ts:1522:41\nat r.Mb in src/vs/platform/quickinput/browser/quickInput.ts:562:36\nat d.value in src/vs/platform/quickinput/browser/quickInput.ts:828:11\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.fire in src/vs/base/common/event.ts:1187:9\nat f.Z in src/vs/base/browser/ui/inputbox/inputBox.ts:537:21\nat HTMLInputElement.<anonymous> in src/vs/base/browser/ui/inputbox/inputBox.ts:199:39\n```\n[Go to Errors Site](https://errors.code.visualstudio.com/card?ch=dc96b837cf6bb4af9cd736aa3af08cf8279f7685&bH=143e7881-6564-68d1-f5f9-6626b876f6ee)",
+    "labels": [
+      "bug",
+      "error-telemetry",
+      "insiders-released"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-24T07:49:31",
+    "first_answer_author": "TylerLeonhardt",
+    "first_answer_body": "Looked through all references of `'command' in ...` this is the only one that is suspicious:\r\n\r\nhttps://github.com/microsoft/vscode/blob/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/src/vs/workbench/contrib/terminal/browser/terminalRunRecentQuickPick.ts#L272\r\n\r\n* it's in a quick pick\r\n* it's not handling `undefined` if `activeItems` is empty (which is possible)\r\n\r\nEDIT: Easy repro steps:\r\n* Open `Run Recent Command`\r\n* `SHIFT+TAB` to have focus leave the list\r\n* Dev tools says the above error",
+    "first_answer_creation_time": "2024-06-03T01:08:42",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "[Testing] testController.items.delete is not removing the item from the tree UI",
+    "url": "https://github.com/microsoft/vscode/issues/213316",
+    "author_name": "pavelfeldman",
+    "question_body": "<!-- \u26a0\ufe0f\u26a0\ufe0f Do Not Delete This! bug_report_template \u26a0\ufe0f\u26a0\ufe0f -->\r\n<!-- Please read our Rules of Conduct: https://opensource.microsoft.com/codeofconduct/ -->\r\n<!-- \ud83d\udd6e Read our guide about submitting issues: https://github.com/microsoft/vscode/wiki/Submitting-Bugs-and-Suggestions -->\r\n<!-- \ud83d\udd0e Search existing issues to avoid creating duplicates. -->\r\n<!-- \ud83e\uddea Test using the latest Insiders build to see if your issue has already been fixed: https://code.visualstudio.com/insiders/ -->\r\n<!-- \ud83d\udca1 Instead of creating your report here, use 'Report Issue' from the 'Help' menu in VS Code to pre-fill useful information. -->\r\n<!-- \ud83d\udd27 Launch with `code --disable-extensions` to check. -->\r\nDoes this issue occur when all extensions are disabled?: No\r\n\r\n<!-- \ud83e\ude93 If you answered No above, use 'Help: Start Extension Bisect' from Command Palette to try to identify the cause. -->\r\n<!-- \ud83d\udce3 Issues caused by an extension need to be reported directly to the extension publisher. The 'Help > Report Issue' dialog can assist with this. -->\r\n- VS Code Version: 1.90\r\n- OS Version: all\r\n\r\nSteps to Reproduce:\r\n\r\n`testController.items.delete` does not remove the item from the test tree.\r\n\r\nDownstream bug: https://github.com/microsoft/playwright/issues/30965\r\n\r\n// cc @connor4312 ",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "testing"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-23T14:38:40",
+    "first_answer_author": "VSCodeTriageBot",
+    "first_answer_body": "Thanks for creating this issue! It looks like you may be using an old version of VS Code, the latest stable release is 1.89.1. Please try upgrading to the latest version and checking whether this issue remains.\n\nHappy Coding!",
+    "first_answer_creation_time": "2024-05-23T14:38:58",
+    "was_closed_after_first_comment": true
+  },
+  {
+    "title": "Creating/Removing cells is broken",
+    "url": "https://github.com/microsoft/vscode/issues/212600",
+    "author_name": "ulugbekna",
+    "question_body": "Cannot create new cells or remove them (I don't have repro steps; it usually stops working after first time creating a new cell)\n\n\n\nhttps://github.com/microsoft/vscode/assets/16353531/f9c08dd1-d64d-45f0-88c9-e6970b1bb604\n\n\n\nVersion: 1.90.0-insider\nCommit: 29aeab1cbb350107a7bd5962b5e7efe745e0a3ec\nDate: 2024-05-13T05:59:57.400Z\nElectron: 29.3.1\nElectronBuildId: 9464424\nChromium: 122.0.6261.156\nNode.js: 20.9.0\nV8: 12.2.281.27-electron.0\nOS: Darwin arm64 23.4.0\n",
+    "labels": [
+      "bug",
+      "verified",
+      "insiders-released",
+      "notebook-commands"
+    ],
+    "comments": 1,
+    "issue_creation_time": "2024-05-13T12:16:41",
+    "first_answer_author": "amunger",
+    "first_answer_body": "repro:\r\n\r\n1. create an empty cell in a notebook and execute it\r\n2. create a new code cell, clicking `+ code` or using keybindings a/b\r\n:bug: no new cell is added, existing cell's editor is focused",
+    "first_answer_creation_time": "2024-05-13T16:24:38",
+    "was_closed_after_first_comment": true
+  }
+]

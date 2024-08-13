@@ -1,0 +1,877 @@
+[
+    {
+        "title": "Terminal suggest: File extension boosts should include exe for Windows",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/225265",
+        "author_name": "Tyriar",
+        "question_body": "Repro:\r\n\r\n1. Create a folder with an .exe file and a .aaa file\r\n2. Type into terminal `.\\<folder_name>\\`, \ud83d\udc1b the exe file should be at the top\r\n\r\n![image](https://github.com/user-attachments/assets/abf0b561-985f-4a32-acd9-ed60b4080907)\r\n\r\n---\r\n\r\nhttps://github.com/microsoft/vscode/blob/25006fe8b1ed416f2e9f5a799310b39694b2e9c3/src/vs/workbench/services/suggest/browser/simpleCompletionModel.ts#L229-L260",
+        "labels": [
+            "bug",
+            "terminal-suggest"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-08-09T16:37:30",
+        "first_answer_author": "Tyriar",
+        "first_answer_body": "Verify above repro, also verify in a folder that contains a **.ps1, .exe, .cmd and .bat** that they appear in that exact order\r\n\r\n![image](https://github.com/user-attachments/assets/6f396bb6-cc4d-44c0-96ad-ee195009b388)\r\n",
+        "first_answer_creation_time": "2024-08-09T16:50:03",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Unsure about when to expect suggestions to automatically appear",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/223420",
+        "author_name": "andreamah",
+        "question_body": "Testing #223130\n\nI notice that sometimes, I need to trigger the suggest widget manually (ctrl+space). For example, I have` git add .\\.vscode\\notebooks\\` typed, and I need to ctrl+space to see the filenames.",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released",
+            "terminal-suggest"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-23T22:55:02",
+        "first_answer_author": "Tyriar",
+        "first_answer_body": "Can repro. This isn't meant to be possible as completions should be requested again after the `\\` is typed:\r\n\r\n![image](https://github.com/user-attachments/assets/9d18e808-ce1a-40f6-934c-5547cca7075f)\r\n",
+        "first_answer_creation_time": "2024-07-24T13:42:31",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "NVDA reads REPL as 'replace'",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/223350",
+        "author_name": "andreamah",
+        "question_body": "Testing #222238\n\nNot sure whether this is something in your control, but I noticed that NVDA reads REPL as replace when it's reading this:\n\n![Image](https://github.com/user-attachments/assets/79efa574-894e-44a8-b15f-e693c2eadde4)\n\nMight be a bit confusing. ",
+        "labels": [
+            "bug",
+            "verified",
+            "accessibility",
+            "polish",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-23T16:34:59",
+        "first_answer_author": "meganrogge",
+        "first_answer_body": "Strange, but yeah, I can work around this by removing the acronym. \n\nNote to self and testers: this appears in both the debug console and debug view's accessibility help dialogs.",
+        "first_answer_creation_time": "2024-07-23T20:39:53",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Settings URL handling - \"Open Current File as Release Notes\" command not working",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/223291",
+        "author_name": "lszomoru",
+        "question_body": "Testing #223027\n\n* Created a new Markdown file - test.md\n* Added the release notes sample to the file and saved it\n* Invoked the \"Open Current File as Release Notes\" command and it failed\n      ![Image](https://github.com/user-attachments/assets/3daa0820-1363-4dc6-ada8-07fdab1ff87f)\n\nNot seeing anything in the developer tools console nor in the various output channel logs.",
+        "labels": [
+            "bug",
+            "verified",
+            "release-notes",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-23T10:49:12",
+        "first_answer_author": "alexr00",
+        "first_answer_body": "I think that the document can't start with a header like that. To unblock testing, you can modify one of the existing release notes to include something similar to the example.",
+        "first_answer_creation_time": "2024-07-23T11:57:12",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Breakpoints stuck under line numbers",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/221478",
+        "author_name": "lramos15",
+        "question_body": "I notice on the latest insiders now when I start and stop debugging the breakpoints are ending up below the line numbers instead of the gutter\n\n\n\n![Image](https://github.com/user-attachments/assets/7d8c4836-b50c-4464-9ba2-9c85bac44861)\n\n",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-11T15:36:15",
+        "first_answer_author": "connor4312",
+        "first_answer_body": "@justschen this CSS rule applies to all glyph margin widgets, maybe you want to scope it more specifically for the lightbulb widget?\r\n\r\nhttps://github.com/microsoft/vscode/blob/31f831310c643ae03c4b84124b5a427d0bed0483/src/vs/editor/contrib/codeAction/browser/lightBulbWidget.css#L48-L53\r\n\r\nThis is overriding what was the [default styling](https://github.com/microsoft/vscode/blob/31f831310c643ae03c4b84124b5a427d0bed0483/src/vs/editor/browser/viewParts/glyphMargin/glyphMargin.css#L11-L20) for glyph margin widgets.",
+        "first_answer_creation_time": "2024-07-11T15:53:35",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "VS Code 1.91 does not respect SourceControl.count",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/221450",
+        "author_name": "Viknet",
+        "question_body": "\nType: <b>Bug</b>\n\nStarting with version 1.91.0, the count badge on the Source Control icon no longer takes into account the `SourceControl.count` value and instead counts all SourceControlResourceGroup.\n\nSteps to reproduce:\n1. Set `git.countBadge` to \"tracked\"\n2. Create new untracked file in Git repository\n\nVS Code version: Code 1.91.0 (Universal) (ea1445cc7016315d0f5728f8e8b12a45dc0a7286, 2024-07-01T18:54:18.541Z)\nOS version: Darwin arm64 23.5.0\nModes:\n\n<details>\n<summary>System Info</summary>\n\n|Item|Value|\n|---|---|\n|CPUs|Apple M1 Pro (10 x 2400)|\n|GPU Status|2d_canvas: enabled<br>canvas_oop_rasterization: enabled_on<br>direct_rendering_display_compositor: disabled_off_ok<br>gpu_compositing: enabled<br>multiple_raster_threads: enabled_on<br>opengl: enabled_on<br>rasterization: enabled<br>raw_draw: disabled_off_ok<br>skia_graphite: disabled_off<br>video_decode: enabled<br>video_encode: enabled<br>webgl: enabled<br>webgl2: enabled<br>webgpu: enabled|\n|Load (avg)|2, 4, 4|\n|Memory (System)|32.00GB (1.32GB free)|\n|Process Argv|--enable-proposed-api jeanp413.open-remote-ssh --crash-reporter-id 481d6038-57fa-4033-9fd6-30428eae7833|\n|Screen Reader|no|\n|VM|0%|\n</details>Extensions: none\n<!-- generated by issue reporter -->",
+        "labels": [
+            "bug",
+            "verified",
+            "git"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-11T08:13:37",
+        "first_answer_author": "Viknet",
+        "first_answer_body": "It is not fixed in 1.91.1\r\n\r\nUPD: I see, it is fixed in insiders build 1.92.0.\r\nThank you!\r\n\r\n<img width=\"845\" alt=\"Screenshot 2024-07-22 at 13 56 23\" src=\"https://github.com/user-attachments/assets/7dda35ef-fc10-4a83-b7df-a147d3303bcd\">\r\n\r\n<details>\r\n  <summary>About</summary>\r\nVersion: 1.91.1 (Universal)\r\nCommit: f1e16e1e6214d7c44d078b1f0607b2388f29d729\r\nDate: 2024-07-09T22:07:54.982Z\r\nElectron: 29.4.0\r\nElectronBuildId: 9728852\r\nChromium: 122.0.6261.156\r\nNode.js: 20.9.0\r\nV8: 12.2.281.27-electron.0\r\nOS: Darwin arm64 23.5.0\r\n</details>",
+        "first_answer_creation_time": "2024-07-22T11:00:16",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "accessibility signals are broken ",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/214798",
+        "author_name": "meganrogge",
+        "question_body": "Also, when `debouncePositionChanges` is `false`, there's still a delay per `accessibility.signalOptions.experimental.delays.*` which there should not be. \r\n\r\nThose should only apply when that is `true`.",
+        "labels": [
+            "bug",
+            "important",
+            "verified",
+            "accessibility",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-06-10T16:12:43",
+        "first_answer_author": "amunger",
+        "first_answer_body": "tested a few audio queues and they seem to be working. Let me know if there was something more specific to verify.",
+        "first_answer_creation_time": "2024-06-26T18:02:25",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "\"Build server\" failed: Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/213764",
+        "author_name": "roblourens",
+        "question_body": "https://dev.azure.com/monacotools/Monaco/_build/results?buildId=275552&view=logs&j=4801dce2-64f3-53d6-b366-d49a1977c639&t=12ed9f3f-1438-5538-b0b2-7a9cf536f94d\r\n\r\n```\r\n[21:33:25] Starting 'vscode-reh-win32-x64-min-ci'...\r\n[21:33:25] Starting node ...\r\n[21:33:25] Downloading node.js 20.11.1 win32 x64 from Microsoft/vscode-node...\r\n[21:33:25] Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!\r\n[21:39:05] 'vscode-reh-win32-x64-min-ci' errored after 5.67 min\r\n[21:39:05] AbortError: This operation was aborted\r\n    at new DOMException (node:internal/per_context/domexception:53:5)\r\n    at AbortController.abort (node:internal/abort_controller:392:18)\r\n    at Timeout._onTimeout (D:\\a\\_work\\1\\s\\build\\lib\\fetch.js:44:53)\r\n    at listOnTimeout (node:internal/timers:573:17)\r\n    at process.processTimers (node:internal/timers:514:7)\r\nerror Command failed with exit code 1.\r\n```",
+        "labels": [
+            "bug",
+            "verified",
+            "vscode-build",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-05-29T03:43:16",
+        "first_answer_author": "deepak1556",
+        "first_answer_body": "Abort was from a network timeout, re-run should be fine for this case. However, the following is an error which has been present for a while unnoticed\r\n\r\n> Unable to verify integrity of downloaded node.js binary because no SHA256 checksum was found!\r\n\r\nI will use this issue to address it.",
+        "first_answer_creation_time": "2024-05-29T04:18:43",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Missing documentation on signalOptions settings UI",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/213670",
+        "author_name": "chrmarti",
+        "question_body": "Testing #213344\n\nThere no documentation on signalOptions:\n![Image](https://github.com/microsoft/vscode/assets/9205389/f173c9b1-1bc8-4c33-80e8-70e48b3b7a47)\n\nThere is some documentation on the leaf properties in the JSON, but it is unclear what `\"general\"` refers to.",
+        "labels": [
+            "bug",
+            "verified",
+            "accessibility",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-05-28T13:47:30",
+        "first_answer_author": "connor4312",
+        "first_answer_body": "I think the request was to have an overall description for the setting, as right now there's nothing until a user starts to complete properties in the settings.json\r\n\r\n<img width=\"636\" alt=\"image\" src=\"https://github.com/microsoft/vscode/assets/2230985/62bde016-0801-47a1-9f68-d2f60ac616b2\">\r\n",
+        "first_answer_creation_time": "2024-05-30T22:16:49",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Cannot use 'in' operator to search for 'command' in undefined",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/213363",
+        "author_name": "VSCodeTriageBot",
+        "question_body": "```javascript\nTypeError: Cannot use 'in' operator to search for 'command' in undefined\nat d.value in out/vs/workbench/workbench.desktop.main.js:1876:13267\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.fire in src/vs/base/common/event.ts:1187:9\nat d.value in src/vs/platform/quickinput/browser/quickInput.ts:930:35\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.z in src/vs/base/common/event.ts:1167:9\nat s.fire in src/vs/base/common/event.ts:1191:9\nat <anonymous> in src/vs/base/common/event.ts:127:84\nat d.value in src/vs/base/common/event.ts:178:85\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.z in src/vs/base/common/event.ts:1167:9\nat s.fire in src/vs/base/common/event.ts:1191:9\nat j.filter in src/vs/platform/quickinput/browser/quickInputTree.ts:1522:41\nat r.Mb in src/vs/platform/quickinput/browser/quickInput.ts:562:36\nat d.value in src/vs/platform/quickinput/browser/quickInput.ts:828:11\nat s.y in src/vs/base/common/event.ts:1156:13\nat s.fire in src/vs/base/common/event.ts:1187:9\nat f.Z in src/vs/base/browser/ui/inputbox/inputBox.ts:537:21\nat HTMLInputElement.<anonymous> in src/vs/base/browser/ui/inputbox/inputBox.ts:199:39\n```\n[Go to Errors Site](https://errors.code.visualstudio.com/card?ch=dc96b837cf6bb4af9cd736aa3af08cf8279f7685&bH=143e7881-6564-68d1-f5f9-6626b876f6ee)",
+        "labels": [
+            "bug",
+            "error-telemetry",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-05-24T07:49:31",
+        "first_answer_author": "TylerLeonhardt",
+        "first_answer_body": "Looked through all references of `'command' in ...` this is the only one that is suspicious:\r\n\r\nhttps://github.com/microsoft/vscode/blob/dc96b837cf6bb4af9cd736aa3af08cf8279f7685/src/vs/workbench/contrib/terminal/browser/terminalRunRecentQuickPick.ts#L272\r\n\r\n* it's in a quick pick\r\n* it's not handling `undefined` if `activeItems` is empty (which is possible)\r\n\r\nEDIT: Easy repro steps:\r\n* Open `Run Recent Command`\r\n* `SHIFT+TAB` to have focus leave the list\r\n* Dev tools says the above error",
+        "first_answer_creation_time": "2024-06-03T01:08:42",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Creating/Removing cells is broken",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/212600",
+        "author_name": "ulugbekna",
+        "question_body": "Cannot create new cells or remove them (I don't have repro steps; it usually stops working after first time creating a new cell)\n\n\n\nhttps://github.com/microsoft/vscode/assets/16353531/f9c08dd1-d64d-45f0-88c9-e6970b1bb604\n\n\n\nVersion: 1.90.0-insider\nCommit: 29aeab1cbb350107a7bd5962b5e7efe745e0a3ec\nDate: 2024-05-13T05:59:57.400Z\nElectron: 29.3.1\nElectronBuildId: 9464424\nChromium: 122.0.6261.156\nNode.js: 20.9.0\nV8: 12.2.281.27-electron.0\nOS: Darwin arm64 23.4.0\n",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released",
+            "notebook-commands"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-05-13T12:16:41",
+        "first_answer_author": "amunger",
+        "first_answer_body": "repro:\r\n\r\n1. create an empty cell in a notebook and execute it\r\n2. create a new code cell, clicking `+ code` or using keybindings a/b\r\n:bug: no new cell is added, existing cell's editor is focused",
+        "first_answer_creation_time": "2024-05-13T16:24:38",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Scroll lock does not indicate in floating windows",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/207817",
+        "author_name": "bpasero",
+        "question_body": "I think the indicator should show in all opened windows and for that you need to add it to all windows. I would monkey-see, monkey-do what we do for the accessibility status indicator:\r\n\r\nhttps://github.com/microsoft/vscode/blob/b22f435d4848fa8f5ef3f1c89cf56f68d7ce6049/src/vs/workbench/contrib/accessibility/browser/accessibilityStatus.ts#L45\r\n\r\nSpecifically:\r\n\r\nhttps://github.com/microsoft/vscode/blob/b22f435d4848fa8f5ef3f1c89cf56f68d7ce6049/src/vs/workbench/contrib/accessibility/browser/accessibilityStatus.ts#L94-L97",
+        "labels": [
+            "bug",
+            "verified",
+            "workbench-status",
+            "insiders-released",
+            "workbench-auxwindow"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-03-15T09:49:35",
+        "first_answer_author": "benibenj",
+        "first_answer_body": "I now show it on all windows. Used the same approach as `ScreenReaderModeStatusEntry`. However, it would be great to not have to do it this way. In principle the main Status Bar Service could provide an option to add an entry across all windows. I think this could be possible as the main service creates the aux ones and hence can track them...",
+        "first_answer_creation_time": "2024-03-15T10:38:51",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "WARN [markdown-language-features]: Couldn't find message for key",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/207804",
+        "author_name": "bpasero",
+        "question_body": "In insiders:\r\n\r\n```\r\nWARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.drop.enabled.always.\r\nlog.ts:429  WARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.drop.enabled.smart.\r\nlog.ts:429  WARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.drop.enabled.never.\r\nlog.ts:429  WARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.filePaste.enabled.always.\r\nlog.ts:429  WARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.filePaste.enabled.smart.\r\nlog.ts:429  WARN [markdown-language-features]: Couldn't find message for key configuration.markdown.editor.filePaste.enabled.never.\r\n```",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-03-15T07:23:42",
+        "first_answer_author": "731315163",
+        "first_answer_body": "Yes, I also encountered this problem, and when I remotely connected to the server using Remote SSH, the Python plugin did not provide syntax suggestions.",
+        "first_answer_creation_time": "2024-03-18T13:00:49",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "cannot access 'session' before initialization",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/207640",
+        "author_name": "meganrogge",
+        "question_body": "```\nvoiceChatActions.ts:468 Uncaught ReferenceError: Cannot access 'session' before initialization\n    at voiceChatActions.ts:468:3\n    at async.ts:527:3\n```\n\nI see this when starting the panel chat voice action in dev tools. \n\nAn easy way to know when this reproduces is to enable the `chatResponsePending` audio cue, which then plays forever. ",
+        "labels": [
+            "bug",
+            "verified",
+            "author-verification-requested",
+            "insiders-released",
+            "workbench-voice"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-03-13T21:21:01",
+        "first_answer_author": "VSCodeTriageBot",
+        "first_answer_body": "<!-- AUTHOR_VERIFICATION_REQUEST -->\nThis bug has been fixed in the latest release of [VS Code Insiders](https://code.visualstudio.com/insiders/)!\n\n@meganrogge, you can help us out by commenting `/verified` if things are now working as expected.\n\nIf things still don't seem right, please ensure you're on version be210b3a60c7d60030c1d3d92da00d008edf6ab9 of Insiders (today's or later - you can use `Help: About` in the command palette to check), and leave a comment letting us know what isn't working as expected.\n\nHappy Coding!",
+        "first_answer_creation_time": "2024-03-15T12:03:18",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Default panel sizing is wrong",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/206296",
+        "author_name": "samdenty",
+        "question_body": "On this line https://github.com/microsoft/vscode/blob/57ea32b56fa30fe897d3e0f6fa0421117c221146/src/vs/workbench/browser/layout.ts#L2614\r\n\r\nit checks to `bottom` string, but because the value in the stateCache is unknown typescript doesn't consider it an error.\r\n\r\nThe actual type is a `Position` enum, which is a number so the check `=== 'bottom'` should be changed otherwise it's defaulting to the width sizing (when it should be height) which is wrong",
+        "labels": [
+            "bug",
+            "verified",
+            "layout",
+            "author-verification-requested",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-02-26T21:29:02",
+        "first_answer_author": "VSCodeTriageBot",
+        "first_answer_body": "<!-- AUTHOR_VERIFICATION_REQUEST -->\nThis bug has been fixed in the latest release of [VS Code Insiders](https://code.visualstudio.com/insiders/)!\n\n@samdenty, you can help us out by commenting `/verified` if things are now working as expected.\n\nIf things still don't seem right, please ensure you're on version cc1f5e3acfad98ed519befc1ebfd199777d135f4 of Insiders (today's or later - you can use `Help: About` in the command palette to check), and leave a comment letting us know what isn't working as expected.\n\nHappy Coding!",
+        "first_answer_creation_time": "2024-03-07T10:26:30",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Often the hover shows up instantly, even with long delay",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/205658",
+        "author_name": "bpasero",
+        "question_body": "Configure `workbench.hover.delay` to a very large value so that you know the hover appears only after long delay. Hover across the workbench and notice how often the hover will appear almost instantly in some cases. I have not yet figured out the pattern.\r\n\r\nProof:\r\n\r\n![Recording 2024-02-20 at 12 19 00](https://github.com/microsoft/vscode/assets/900690/c9f3e4f7-ef5b-4994-b1c3-7be0d4b4d677)\r\n",
+        "labels": [
+            "bug",
+            "verified",
+            "workbench-hover",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-02-20T11:19:17",
+        "first_answer_author": "benibenj",
+        "first_answer_body": "It seems like `onDidHideHover` is being called even when the hover has never been shown due to it's high delay. This then resets the clock and causes the second element in the toolbar to immediately show when hovered over.",
+        "first_answer_creation_time": "2024-02-20T12:32:42",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Deleting a notebook cell, clicking the bottom of the notebook and undo does not work",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/205028",
+        "author_name": "Tyriar",
+        "question_body": "Repro:\r\n\r\n1. Create 3 cells\r\n2. Delete the middle one\r\n3. Click the empty space at the bottom of the notebook\r\n4. Press undo \ud83d\udc1b it doesn't work, clicking in between cells does work though",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-02-12T19:11:51",
+        "first_answer_author": "Yoyokrazy",
+        "first_answer_body": "Specifically, undo only works when focused on a cell container. Focus within a cell (code or markdown) editor and in the notebook editor both do not handle the undo.",
+        "first_answer_creation_time": "2024-02-12T19:17:48",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Markdown preview not rendering in notebooks",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/204020",
+        "author_name": "amunger",
+        "question_body": "Steps to Reproduce:\r\n\r\n1. Create an interactive window\r\n2. Run a markdown cell\r\n\r\n```\r\n# %% [markdown]\r\n# # Markdown\r\n```\r\n\r\n:bug: invisible cell is added",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released",
+            "notebook-markdown"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-02-01T19:41:39",
+        "first_answer_author": "mjbvz",
+        "first_answer_body": "I see the following error in the logs:\n\n```\nnotebookWebviewPreloads.js:3 Uncaught (in promise) ReferenceError: t is not defined\n    at new he (notebookWebviewPreloads.js:3:29317)\n    at Object.g (notebookWebviewPreloads.js:3:26761)\n    at Object.ensureMarkupCell (notebookWebviewPreloads.js:3:27088)\n    at notebookWebviewPreloads.js:3:17672\n```",
+        "first_answer_creation_time": "2024-02-01T19:46:23",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "ChatAgentContentReference needs to support https URIs",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/203822",
+        "author_name": "roblourens",
+        "question_body": "Places in the Chat Agent API that support URI references really only work with file URIs currently. https URIs should also get rendered and linked nicely.",
+        "labels": [
+            "bug",
+            "api",
+            "verified",
+            "insiders-released",
+            "panel-chat"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-01-30T17:47:25",
+        "first_answer_author": "eleanorjboyd",
+        "first_answer_body": "<img width=\"520\" alt=\"image\" src=\"https://github.com/microsoft/vscode/assets/26030610/d186c704-185c-4e7b-aa9a-ef0ed823234c\">\r\n\r\nIs entering a link in chat and having it become clickable the desired outcome? Want to confirm this is the right spot to test external URLs",
+        "first_answer_creation_time": "2024-02-21T17:17:38",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Terminal speech: mic icon does not appear when no line above prompt",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/202707",
+        "author_name": "bpasero",
+        "question_body": "It seems that the mic icon requires at least one line above the prompt to show:\r\n\r\n![image](https://github.com/microsoft/vscode/assets/900690/6d52eaff-aa47-4eff-997e-b5c47838e3be)\r\n\r\nIt does not appear for me in the above case.",
+        "labels": [
+            "bug",
+            "verified",
+            "insiders-released",
+            "workbench-voice"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-01-18T08:23:13",
+        "first_answer_author": "meganrogge",
+        "first_answer_body": "Thanks for the issue. Should be an easy fix and in this case the mic will have to go on the cursor line ",
+        "first_answer_creation_time": "2024-01-18T15:15:45",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Cannot copy/paste files anymore between folders",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/200581",
+        "author_name": "bpasero",
+        "question_body": "I am trying to `Cmd+C` a file in the one root folder and `Cmd+V` into another root folder and nothing happens anymore. Is this known?\r\n\r\nI am using multi-root folder setup.\r\n\r\n![Recording 2023-12-11 at 20 04 26](https://github.com/microsoft/vscode/assets/900690/fa0de413-715c-4f88-ae15-a1feb7872ff8)\r\n",
+        "labels": [
+            "bug",
+            "verified",
+            "file-explorer",
+            "candidate",
+            "workbench-dnd",
+            "regression",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2023-12-11T19:03:19",
+        "first_answer_author": "aliphys",
+        "first_answer_body": "I can replicate this issue in VS Code 1.85.1.\r\n\r\nCannot copy-paste with both remote folders over SSH as well as local folders. Tried both drag-drop as well as `Ctrl+c` and `Ctrl+v`.\r\n\r\n```\r\nVersion: 1.85.1 (system setup)\r\nCommit: 0ee08df0cf4527e40edc9aa28f4b5bd38bbff2b2\r\nDate: 2023-12-13T09:49:37.021Z\r\nElectron: 25.9.7\r\nElectronBuildId: 25551756\r\nChromium: 114.0.5735.289\r\nNode.js: 18.15.0\r\nV8: 11.4.183.29-electron.0\r\nOS: Windows_NT x64 10.0.22631\r\n```",
+        "first_answer_creation_time": "2023-12-14T14:39:12",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Cannot read properties of undefined (reading 'querySelector')",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/200409",
+        "author_name": "joyceerhl",
+        "question_body": "```\r\n2023-12-08 12:41:58.988 [error] Cannot read properties of undefined (reading 'querySelector'): TypeError: Cannot read properties of undefined (reading 'querySelector')\r\n    at b.n (vscode-file://vscode-app/c:/Users/huer/AppData/Local/Programs/Microsoft%20VS%20Code%20Insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2633:11438)\r\n    at b.xtermReady (vscode-file://vscode-app/c:/Users/huer/AppData/Local/Programs/Microsoft%20VS%20Code%20Insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2633:11201)\r\n    at vscode-file://vscode-app/c:/Users/huer/AppData/Local/Programs/Microsoft%20VS%20Code%20Insiders/resources/app/out/vs/workbench/workbench.desktop.main.js:2622:56902\r\n```",
+        "labels": [
+            "bug",
+            "verified",
+            "terminal",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2023-12-08T21:42:53",
+        "first_answer_author": "bpasero",
+        "first_answer_body": "I am still seeing this in my insiders:\r\n\r\n```\r\nERR Cannot read properties of undefined (reading 'querySelector'): TypeError: Cannot read properties of undefined (reading 'querySelector')\r\n    at b.n (vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/workbench/workbench.desktop.main.js:2633:11406)\r\n    at b.xtermReady (vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/workbench/workbench.desktop.main.js:2633:11169)\r\n    at vscode-file://vscode-app/Applications/Visual%20Studio%20Code%20-%20Insiders.app/Contents/Resources/app/out/vs/workbench/workbench.desktop.main.js:2622:52706\r\n```\r\n\r\nVersion: \r\n\r\n```\r\nVersion: 1.86.0-insider\r\nCommit: 9621add46007f7a1ab37d1fce9bcdcecca62aeb0\r\nDate: 2023-12-20T05:47:39.317Z\r\nElectron: 27.1.3\r\nElectronBuildId: 25612240\r\nChromium: 118.0.5993.159\r\nNode.js: 18.17.1\r\nV8: 11.8.172.18-electron.0\r\nOS: Darwin arm64 23.1.0\r\n```",
+        "first_answer_creation_time": "2023-12-20T07:19:58",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "TerminalInstance memory leak",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/200400",
+        "author_name": "Tyriar",
+        "question_body": "Repro:\r\n\r\n1. Open Code - OSS\r\n2. Close all terminals\r\n3. Reload\r\n4. Open devtools\r\n5. Go to memory and take a heap snapshot\r\n6. Open a terminal\r\n7. Close the terminal\r\n8. Go to memory and take a heap snapshot\r\n9. Compare the two heap snapshots, you should not see `TerminalInstance`",
+        "labels": [
+            "bug",
+            "verified",
+            "verification-found",
+            "perf"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2023-12-08T19:52:45",
+        "first_answer_author": "mjbvz",
+        "first_answer_body": "On Mac, I'm still seeing a terminal instances after running `kill all terminals`\n\n![Image](https://github.com/microsoft/vscode/assets/12821956/a69e4e87-0879-4db7-bd54-729700ba4a26)\n\n\nRepeating the process I then see two `TerminalInstance` \n\n\n----\n\nPossibly needs a missing register here:\n\nhttps://github.com/microsoft/vscode/blob/2b07f0f22a83c62c243bfd85b8e70d46c3d99676/src/vs/workbench/api/browser/mainThreadTerminalService.ts#L239",
+        "first_answer_creation_time": "2024-01-24T21:50:29",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Unlucky default color for sparkle lightbulb",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/199748",
+        "author_name": "jrieken",
+        "question_body": "* Use \"Github Light Theme\" from `GitHub.github-vscode-theme`\r\n* the sparkle lightbulb seems to be the same color as the editor background\r\n\r\n<img width=\"212\" alt=\"Screenshot 2023-12-01 at 10 42 28\" src=\"https://github.com/microsoft/vscode/assets/1794099/81322602-dc00-44e8-a32c-628c8945cf18\">\r\n",
+        "labels": [
+            "bug",
+            "verified",
+            "editor-code-actions",
+            "insiders-released"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2023-12-01T10:19:20",
+        "first_answer_author": "aiday-mar",
+        "first_answer_body": "I can decrease the value of the lightening factor. This will however mean that the sparkles will be darker on other light themes.",
+        "first_answer_creation_time": "2023-12-01T11:49:48",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "Inline chat opens in output view",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/199662",
+        "author_name": "aeschli",
+        "question_body": "- open the `Extension Host` log in the output view\r\n- press Ctrl + I. :bug: Inline chat opens in the output view. It's not possible to enter a question.\r\n\r\nShould not open in the output view.",
+        "labels": [
+            "bug",
+            "verified",
+            "verification-steps-needed",
+            "insiders-released",
+            "inline-chat"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2023-11-30T13:35:41",
+        "first_answer_author": "eleanorjboyd",
+        "first_answer_body": "Tried this and it now does nothing when I press ctrl + I. This is the expected behavior now right?",
+        "first_answer_creation_time": "2023-11-30T21:54:14",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "debugging help dialog is missing some info",
+        "repo_name": "microsoft/vscode",
+        "url": "https://github.com/microsoft/vscode/issues/223959",
+        "author_name": "meganrogge",
+        "question_body": "In the run and debug dialog, we should include:\n\n- stop debugging\n- restart debugging\n- add variable to watch\n\nIn the debug console dialog, we should include:\n\n- clear console (and a keybinding for this, as tab navigation is tedious)\n\nIn the debug console dialog, we should remove:\n- the debugging specific commands, directing people to the run and debug view's help dialog for more info\n\nIn the editor dialog, we should add:\n- add variable to watch",
+        "labels": [
+            "feature-request",
+            "accessibility"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2024-07-26T19:23:52",
+        "first_answer_author": "vs-code-engineering[bot]",
+        "first_answer_body": "<!-- UNABLE_TO_LOCATE_COMMIT_MESSAGE -->\n\t\t\tIssue marked as unreleased but unable to locate closing commit in issue timeline. You can manually reference a commit by commenting `\\closedWith someCommitSha`, or directly add the `insiders-released` label if you know this has already been releaased",
+        "first_answer_creation_time": "2024-07-31T23:27:52",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "fs.rm cannot delete a symlink which is part of a loop",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/45404",
+        "author_name": "nathanael-ruf",
+        "question_body": "### Version\r\n\r\n18.12.1\r\n\r\n### Platform\r\n\r\nDarwin Nathanaels-MBP.fritz.box 22.1.0 Darwin Kernel Version 22.1.0: Sun Oct  9 20:14:30 PDT 2022; root:xnu-8792.41.9~2/RELEASE_ARM64_T8103 arm64\r\n\r\n### Subsystem\r\n\r\nfs\r\n\r\n### What steps will reproduce the bug?\r\n\r\n```sh\r\nmkdir repro\r\ncd repro\r\nln -s a b && ln -s b a\r\nnode -e 'fs.rmSync(\"a\")'\r\ncd ..\r\nrm -r repro\r\n```\r\n\r\n### How often does it reproduce? Is there a required condition?\r\n\r\nAlways. No.\r\n\r\n### What is the expected behavior?\r\n\r\nCan delete symlinks that form a loop.\r\n\r\n### What do you see instead?\r\n\r\nThis error\r\n```\r\nUncaught Error: ELOOP: too many symbolic links encountered, stat 'a'\r\n    at Object.statSync (node:fs:1596:3)\r\n    at __node_internal_ (node:internal/fs/utils:804:8)\r\n    at Object.rmSync (node:fs:1272:13) {\r\n  errno: -62,\r\n  syscall: 'stat',\r\n  code: 'ELOOP',\r\n  path: 'a'\r\n}\r\n```\r\n\r\n### Additional information\r\n\r\nThis `stat` call should probably be a `lstat`call.\r\nhttps://github.com/nodejs/node/blob/1b971883e0c86f37468e421ffe5f39b585782ad6/lib/internal/fs/utils.js#L772",
+        "labels": [
+            "confirmed-bug",
+            "fs"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2022-11-10T10:04:42",
+        "first_answer_author": "nathanael-ruf",
+        "first_answer_body": "Workaround:\r\n\r\n```ts\r\ntry {\r\n    await rm(path, {...});\r\n} catch (e) {\r\n    if ('code' in e && e.code === 'ELOOP') {\r\n         await unlink(p);\r\n     }\r\n}\r\n```",
+        "first_answer_creation_time": "2022-11-10T10:20:22",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "performance.timerify doesn't return wrapped function's return value",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/40623",
+        "author_name": "acchou",
+        "question_body": "### Version\n\nv16.13.0\n\n### Platform\n\nDarwin AC-MacBook-Pro.hsd1.ca.comcast.net 20.6.0 Darwin Kernel Version 20.6.0: Mon Aug 30 06:12:21 PDT 2021; root:xnu-7195.141.6~3/RELEASE_X86_64 x86_64 i386 MacBookPro16,1 Darwin\n\n### Subsystem\n\nperformance\n\n### What steps will reproduce the bug?\n\n```\r\nconst perf = performance.timerify(function foo() {\r\n    let sum = 0;\r\n    for (let i = 0; i < 1000000; i++) {\r\n        sum += i;\r\n    }\r\n    return sum;\r\n});\r\n\r\nconst result = perf();\r\nconsole.log(result);\r\n```\n\n### How often does it reproduce? Is there a required condition?\n\nThis reproduces deterministically.\n\n### What is the expected behavior?\n\nA number should be printed\n\n### What do you see instead?\n\n`foo {}`\n\n### Additional information\n\n_No response_",
+        "labels": [
+            "confirmed-bug",
+            "perf_hooks"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2021-10-27T05:05:33",
+        "first_answer_author": "targos",
+        "first_answer_body": "Seems like a bug to me indeed. The function is called as a constructor and it returns an instance of it instead of the true return value.",
+        "first_answer_creation_time": "2021-10-27T07:06:53",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "Invalid HTTP/2 origin set when servername is empty",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/39919",
+        "author_name": "szmarczak",
+        "question_body": "### Version\r\n\r\nv16.8.0\r\n\r\n### Platform\r\n\r\nLinux solus 5.13.12-193.current #1 SMP PREEMPT Fri Aug 20 14:21:44 UTC 2021 x86_64 GNU/Linux\r\n\r\n### Subsystem\r\n\r\nhttp2\r\n\r\n### What steps will reproduce the bug?\r\n\r\n```js\r\nconst http2 = require('http2');\r\n\r\nconst session = http2.connect('https://1.1.1.1', {servername: ''});\r\nsession.once('remoteSettings', () => {\r\n  console.log(session.originSet);\r\n\r\n  session.close();\r\n});\r\n```\r\n\r\n### How often does it reproduce? Is there a required condition?\r\n\r\nAlways.\r\n\r\n### What is the expected behavior?\r\n\r\n```\r\n[ 'https://1.1.1.1' ]\r\n```\r\n\r\n### What do you see instead?\r\n\r\n```\r\n[ 'https://false' ]\r\n```\r\n\r\n### Additional information\r\n\r\n```js\r\nconst http2 = require('http2');\r\n\r\nconst session = http2.connect('https://1.1.1.1');\r\nsession.once('remoteSettings', () => {\r\n  console.log(session.originSet);\r\n\r\n  session.close();\r\n});\r\n```\r\n\r\ngives a warning\r\n\r\n```\r\n(node:36333) [DEP0123] DeprecationWarning: Setting the TLS ServerName to an IP address is not permitted by RFC 6066. This will be ignored in a future version.\r\n(Use `node --trace-deprecation ...` to show where the warning was created)\r\n[ 'https://1.1.1.1' ]\r\n```\r\n\r\n/cc @ronag",
+        "labels": [
+            "confirmed-bug",
+            "http2"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2021-08-27T22:29:47",
+        "first_answer_author": "Narasimha1997",
+        "first_answer_body": "@szmarczak \r\nAccording to the additional information you have provided, this is the intended behaviour, the server name is supposed to be a valid domain name in the SSL certificate. Using IP addresses in the SSL certificate is not encouraged.\r\n\r\nHowever, this is just an additional information. The original bug remains a bug. Maybe somewhere the empty `servername` property is being substituted without checking its value, which is resulting in `https://false`. Weird haha.",
+        "first_answer_creation_time": "2021-08-29T13:10:44",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "12.9.0 is it a bug?",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/29243",
+        "author_name": "phantom9999",
+        "question_body": "version: 12.9.0\r\ngcc: 8.2\r\n\r\nmessage:\r\n```\r\n#\r\n# Fatal error in , line 0\r\n# Check failed: (isolate_->embedded_blob()) != nullptr.\r\n#\r\n#\r\n#\r\n#FailureMessage Object: 0x7fff837402c0  (core dumped)\r\n```\r\n\r\n",
+        "labels": [
+            "confirmed-bug",
+            "build",
+            "v8 engine"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2019-08-21T12:22:59",
+        "first_answer_author": "addaleax",
+        "first_answer_body": "What flags, if any, did you pass to `./configure`? Does this happen when running Node.js, while building it, or only with specific scripts?",
+        "first_answer_creation_time": "2019-08-21T12:30:41",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "util-inl.h missing",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/27803",
+        "author_name": "marudor",
+        "question_body": "* **Version**: v12.3.0\r\n* **Platform**: Darwin Kernel Version 18.6.0: Thu Apr 25 23:16:27 PDT 2019; root:xnu-4903.261.4~2/RELEASE_X86_64 x86_64\r\n* **Subsystem**:\r\n\r\nnode.h:107 now includes util-inl.h. That file is not shipped by node-gyp though.\r\n\r\n12.2 did not include this file.",
+        "labels": [
+            "confirmed-bug",
+            "c++",
+            "addons"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2019-05-21T19:30:41",
+        "first_answer_author": "sam-github",
+        "first_answer_body": "I thought it had previously been indirectly included into our API, so added it in https://github.com/nodejs/node/pull/27631 when it was removed from other core headers. I was mistaken, sorry.",
+        "first_answer_creation_time": "2019-05-21T19:57:00",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "REPL: Node 12.0.0 unable to parse class properties ",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/27391",
+        "author_name": "AlvaroBernalG",
+        "question_body": "<!--\r\nThank you for reporting a possible bug in Node.js.\r\n\r\nPlease fill in as much of the template below as you can.\r\n\r\nVersion: output of `node -v`\r\nPlatform: output of `uname -a` (UNIX), or version and 32 or 64-bit (Windows)\r\nSubsystem: if known, please specify the affected core module name\r\n\r\nIf possible, please provide code that demonstrates the problem, keeping it as\r\nsimple and free of external dependencies as you can.\r\n-->\r\n\r\n* **Version**: v12.0.0\r\n* **Platform**: Darwin XX.z 18.5.0 Darwin Kernel Version 18.5.0: Mon Mar 11 20:40:32 PDT 2019; root:xnu-4903.251.3~3/RELEASE_X86_64 x86_64\r\n\r\n\r\n<!-- Please provide more details below this comment. -->\r\n\r\n<img width=\"363\" alt=\"Screenshot 2019-04-24 at 19 50 35\" src=\"https://user-images.githubusercontent.com/12004383/56685604-3e876b80-66ca-11e9-9963-287f522cd788.png\">\r\n<img width=\"325\" alt=\"Screenshot 2019-04-24 at 19 52 05\" src=\"https://user-images.githubusercontent.com/12004383/56685726-80b0ad00-66ca-11e9-802a-4fbb1472703a.png\">\r\n",
+        "labels": [
+            "confirmed-bug",
+            "repl"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2019-04-24T18:53:36",
+        "first_answer_author": "devsnek",
+        "first_answer_body": "unfortunately we parse the repl input with acorn before actually running it, so its not a 1:1 match to what node actually supports.\r\n\r\nI'm not entirely sure what to do about this.",
+        "first_answer_creation_time": "2019-04-24T19:07:34",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "TypeError: clazz is not a constructor on \u2265 v11.6.0",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/25451",
+        "author_name": "nakhodkin",
+        "question_body": "I'm experiencing an issue with a following piece of code\r\n\r\n<img width=\"1147\" alt=\"screen shot 2019-01-11 at 10 27 41 pm\" src=\"https://user-images.githubusercontent.com/14351638/51058947-27c57900-15f3-11e9-839d-33dd8fc4d49d.png\">\r\n\r\n```javascript\r\n'use strict';\r\n\r\nconst people = [\r\n  ['John', 19, 'm'],\r\n  ['Valentine', 28, 'f'],\r\n  ['Christina', 25, 'f']\r\n];\r\n\r\nclass Person {\r\n  get name() {\r\n    return this[0];\r\n  }\r\n  \r\n  get age() {\r\n    return this[1];\r\n  }\r\n  \r\n  get sex() {\r\n    return this[2];\r\n  }\r\n}\r\n\r\npeople.forEach(person => Object.setPrototypeOf(person, Person.prototype));\r\n\r\nconst query = person => person.age > 25;\r\n\r\npeople.filter(query);\r\n```\r\nYou can see a more detailed information about the stacktrace right below\r\n<img width=\"822\" alt=\"screen shot 2019-01-11 at 10 49 55 pm\" src=\"https://user-images.githubusercontent.com/14351638/51058973-40ce2a00-15f3-11e9-90d0-04b38c5012c5.png\">\r\n\r\n* **Node: v11.6.0**:\r\n* **Platform: macOS Mojave Version 10.14.2**:\r\n",
+        "labels": [
+            "confirmed-bug",
+            "util"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2019-01-11T20:55:03",
+        "first_answer_author": "mscdex",
+        "first_answer_body": "There probably is a bug here with `util.inspect()`, but the issue here is that you overwriting each array's prototype (`Array.prototype`) with `Person.prototype`, so when you try to access the getter, the indexed properties no longer work because those are implemented by `Array.prototype`.",
+        "first_answer_creation_time": "2019-01-11T21:17:12",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "generateKeyPairSync doesn't return KeyObject",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/25322",
+        "author_name": "panva",
+        "question_body": "* **Version**: v11.6.0\r\n* **Platform**: macOS Mojave (10.14.2) Darwin C02TT3JQHTD6 18.2.0 Darwin Kernel Version 18.2.0: Mon Nov 12 20:24:46 PST 2018; root:xnu-4903.231.4~2/RELEASE_X86_64 x86_64\r\n\r\nFrom `crypto.generateKeyPair` documentation\r\n> If a `publicKeyEncoding` or `privateKeyEncoding` was specified, this function behaves as if `keyObject.export()` had been called on its result. **Otherwise, the respective part of the key is returned as a `KeyObject`.**\r\n\r\nThis documentation part is missing from `crypto.generateKeyPairSync` but you can still omit the encoding objects, then a simple empty object `{}` is returned instead of an expected `KeyObject`.\r\n\r\n/cc @tniessen\r\n\r\nExamples:\r\n```js\r\nconst { generateKeyPairSync } = require('crypto')\r\n\r\nconsole.log('generateKeyPairSync result', generateKeyPairSync('rsa', { modulusLength: 2048 }))\r\n// => generateKeyPairSync result { publicKey: {}, privateKey: {} }\r\n```",
+        "labels": [
+            "confirmed-bug",
+            "crypto"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2019-01-03T11:13:28",
+        "first_answer_author": "tniessen",
+        "first_answer_body": "Thanks for reporting this! The problem is that the native (C++) key object is being returned, not the JavaScript key object, that's why the object appears to be empty.\r\n\r\n```js\r\n> const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', { modulusLength: 2048 })\r\nundefined\r\n> publicKey.getAsymmetricKeyType()\r\n'rsa'\r\n> publicKey.getSymmetricKeySize()\r\nC:\\WINDOWS\\system32\\cmd.exe - node[6416]: src\\node_crypto.cc:3350: Assertion `(key_type_) == (kKeyTypeSecret)' failed.\r\n 1: 00007FF7F0EC3FDA v8::internal::GCIdleTimeHandler::GCIdleTimeHandler+4714\r\n 2: 00007FF7F0E68AD6 uv_loop_fork+80918\r\n 3: 00007FF7F0E68B8F uv_loop_fork+81103\r\n 4: 00007FF7F0D8682F std::vector<v8::CpuProfileDeoptFrame,std::allocator<v8::CpuProfileDeoptFrame> >::vector<v8::CpuProfileDeoptFrame,std::allocator<v8::CpuProfileDeoptFrame> >+102815\r\n 5: 00007FF7F12D20BE v8::internal::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>+59870\r\n 6: 00007FF7F12D3620 v8::internal::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>+65344\r\n 7: 00007FF7F12D25B9 v8::internal::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>+61145\r\n 8: 00007FF7F12D249B v8::internal::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>::ZoneVector<v8::internal::compiler::MoveOperands * __ptr64>+60859\r\n 9: 00000038CF650361\r\n```",
+        "first_answer_creation_time": "2019-01-03T14:04:33",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "fs.promises.readFile cannot read /proc/stat, produces empty result",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/21331",
+        "author_name": "constb",
+        "question_body": "* **Version**: 10.4.1\r\n* **Platform**: Amazon Linux 2, kernel 4.14 x64\r\n* **Subsystem**: fs, experimental promises api\r\n\r\n```js\r\nconst fs = require('fs')\r\nfs.promises.readFile('/proc/stat', { encoding: 'utf8' }).then(r => console.log(r.length)) // => 0\r\nfs.readFile('/proc/stat', { encoding: 'utf8' }, (e, r) => console.log(r.length)) // => 2347\r\nconsole.log(fs.readFileSync('/proc/stat', { encoding: 'utf8' }).length) // => 2347\r\n```\r\n\r\nI'm not sure how promises API differs from classic one, but this behaviour is surprising, and I can't find anything in the docs that would explain what I am doing wrong\u2026",
+        "labels": [
+            "confirmed-bug",
+            "fs"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2018-06-14T17:21:34",
+        "first_answer_author": "fanyer",
+        "first_answer_body": "same with me, the `fs.promises` interface return 0 when readFile `/proc/stat` .\r\n\r\n- Version: 10.4.1\r\n- Platform: Debian 9.4 linux 4.9.0.6  x64",
+        "first_answer_creation_time": "2018-06-21T09:26:23",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "http2: assertion failed",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/21008",
+        "author_name": "ronag",
+        "question_body": "Node 10.2.1, OSX\r\n\r\n```\r\n/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node[47055]: ../src/node_http2.cc:1819:void node::http2::Http2Stream::OnTrailers(): Assertion `!this->IsDestroyed()' failed.\r\n 1: node::Abort() [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 2: node::MakeCallback(v8::Isolate*, v8::Local<v8::Object>, char const*, int, v8::Local<v8::Value>*, node::async_context) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 3: node::http2::Http2Stream::OnTrailers() [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 4: node::http2::Http2Stream::Provider::Stream::OnRead(nghttp2_session*, int, unsigned char*, unsigned long, unsigned int*, nghttp2_data_source*, void*) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 5: nghttp2_session_pack_data [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 6: nghttp2_session_mem_send_internal [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 7: nghttp2_session_mem_send [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 8: node::http2::Http2Session::SendPendingData() [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n 9: node::http2::Http2Session::ClearOutgoing(int) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n10: node::http2::Http2Session::OnStreamAfterWrite(node::WriteWrap*, int) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n11: node::WriteWrap::OnDone(int) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n12: node::Environment::RunAndClearNativeImmediates() [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n13: node::Environment::CheckImmediate(uv_check_s*) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n14: uv__run_check [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n15: uv_run [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n16: node::Start(v8::Isolate*, node::IsolateData*, int, char const* const*, int, char const* const*) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n17: node::Start(uv_loop_s*, int, char const* const*, int, char const* const*) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n18: node::Start(int, char**) [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n19: start [/Users/ronagy/.nvm/versions/node/v10.2.1/bin/node]\r\n```",
+        "labels": [
+            "confirmed-bug",
+            "http2"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2018-05-28T21:41:20",
+        "first_answer_author": "apapirovski",
+        "first_answer_body": "Thanks for reporting @ronag. I think the CHECK that is failing here is actually incorrect as things are. I think we need to avoid calling `OnTrailers` if the stream is already destroyed because it's possible for OnRead to trigger after that's already the case.",
+        "first_answer_creation_time": "2018-05-29T16:06:59",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "Missing useful debug information for Dynamic Import errors",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/19763",
+        "author_name": "m-a-r-c-e-l-i-n-o",
+        "question_body": "Hello there, \r\n\r\nNode: v9.10.1\r\nPlatform: Darwin MACLTUS44977 15.6.0 Darwin Kernel Version 15.6.0\r\n\r\n```\r\n// problem.mjs\r\nconst foo = () => {\r\n  await bar()\r\n}\r\n```\r\nSo \"problem.mjs\" has an issue, which is that it is using the \"await\" keyword inside a non \"async\" function.\r\n\r\nIf you try to run this file as an entry in node or regular import, a very helpful error is thrown as expected:\r\n```\r\n// \"node --experimental-modules problem.mjs\" or \"import problem from './problem.mjs'\"\r\nfile:///Users/ctsuser1/Desktop/projects/problem.mjs:2\r\n  await bar()\r\n  ^^^^^\r\nSyntaxError: Unexpected reserved word\r\n    at translators.set (internal/loader/Translators.js:27:13)\r\n    at <anonymous>\r\n```\r\n\r\nBut... if you try to \"dynamically\" import \"problem.mjs\", it throws a completely useless error:\r\n```\r\nSyntaxError: Unexpected reserved word\r\n    at translators.set (internal/loader/Translators.js:27:13)\r\n    at <anonymous>\r\n```\r\n\r\nIs this a bug? How can this be resolved? It's impossible to debug this way. Thanks in advance!\r\n",
+        "labels": [
+            "confirmed-bug",
+            "esm"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2018-04-03T00:08:57",
+        "first_answer_author": "devsnek",
+        "first_answer_body": "i think once we standardise our use of module errors in ModuleJob we can streamline decorating the error stack but i'll have to look into it more",
+        "first_answer_creation_time": "2018-04-03T04:09:22",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "tcp socket localPort option does not work",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/15084",
+        "author_name": "beingmohit",
+        "question_body": "Version: v6.11.2\r\nPlatform: Linux workstation 4.4.0-92-generic #115-Ubuntu SMP Thu Aug 10 09:04:33 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux\r\nSubsystem: net\r\n\r\n```\r\nconst net = require('net');\r\n\r\nfunction createServer(port) {\r\n    var server = net.createServer();\r\n\r\n    server.on('connection', (socket) => {\r\n        console.log('Server '+port+': socket connected',  socket.remotePort);\r\n    });\r\n\r\n    server.listen(port);\r\n}\r\n\r\ncreateServer(6001);\r\ncreateServer(6002);\r\n\r\nvar client =  new net.Socket();\r\n\r\nclient.connect({\r\n    port: 6001,\r\n    address: '::ffff:127.0.0.1',\r\n    localPort: 6002\r\n});\r\n\r\n```\r\n**Output**: Server 6001: socket connected 35372\r\n**Expected**: Server 6001: socket connected 6002 (or EADDRINUSE error)",
+        "labels": [
+            "confirmed-bug",
+            "net"
+        ],
+        "comments": 3,
+        "issue_creation_time": "2017-08-30T04:27:06",
+        "first_answer_author": "joyeecheung",
+        "first_answer_body": "I can reproduce this with master. I think this is similar to what https://github.com/nodejs/node/blob/2154a3ce0f2eca1d26e1ad8e7bbeae1039822a5a/lib/net.js#L1383-L1390 tries to address. I will open a PR fixing this shortly (the fix is causing other tests to fail because they are depending on this bug...).",
+        "first_answer_creation_time": "2017-08-30T10:09:06",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "node crashes if `undefined` passed to an objectMode readable stream",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/13753",
+        "author_name": "75lb",
+        "question_body": "* **Version**: v8.1.2\r\n* **Platform**: Darwin mbp.local 16.6.0 Darwin Kernel Version 16.6.0: Fri Apr 14 16:21:16 PDT 2017; root:xnu-3789.60.24~6/RELEASE_X86_64 x86_64\r\n* **Subsystem**: Stream\r\n\r\n<!-- Enter your issue details below this comment. -->\r\n\r\nThe following code works on node v7 but crashes on v8: \r\n\r\n```js\r\nconst Transform = require('stream').Transform\r\nconst stream = new Transform({ objectMode: true })\r\n\r\nfunction processChunk (chunk) { return undefined }\r\n\r\nstream._transform = function (chunk, enc, done) {\r\n  if (chunk) {\r\n    this.push(processChunk(chunk))\r\n  }\r\n  done()\r\n}\r\n\r\nstream.end({ something: 'whatever' })\r\n```\r\n\r\nNode crashes if my `processChunk` function returns `undefined` (which it always does for the purpose of this test case), any other value works fine. However, [the docs](https://nodejs.org/dist/latest-v8.x/docs/api/stream.html#stream_readable_push_chunk_encoding) say that \"For object mode streams, chunk may be any JavaScript value.\" If this is true, `undefined` should work fine, no? ",
+        "labels": [
+            "confirmed-bug",
+            "stream"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2017-06-17T23:10:09",
+        "first_answer_author": "75lb",
+        "first_answer_body": "this is error when running the above script on node v8.1.2:\r\n\r\n```\r\n$ node tmp/issue.js\r\n_stream_readable.js:218\r\n          Object.getPrototypeOf(chunk) !== Buffer.prototype &&\r\n                 ^\r\n\r\nTypeError: Cannot convert undefined or null to object\r\n    at Function.getPrototypeOf (<anonymous>)\r\n    at readableAddChunk (_stream_readable.js:218:18)\r\n    at Transform.Readable.push (_stream_readable.js:197:10)\r\n    at Transform.push (_stream_transform.js:151:32)\r\n    at Transform.stream._transform (/Users/lloydb/Documents/tmp/issue.js:8:10)\r\n    at Transform._read (_stream_transform.js:190:10)\r\n    at Transform._write (_stream_transform.js:178:12)\r\n    at doWrite (_stream_writable.js:371:12)\r\n    at writeOrBuffer (_stream_writable.js:357:5)\r\n    at Transform.Writable.write (_stream_writable.js:274:11)\r\n```",
+        "first_answer_creation_time": "2017-06-17T23:22:34",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "Invalid Url when domain contains between 4 and 9 digits",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/10306",
+        "author_name": "Janpot",
+        "question_body": "* **Version**: v7.2.1\r\n* **Platform**: Darwin Jans-MacBook-Pro-2.local 16.3.0 Darwin Kernel Version 16.3.0: Thu Nov 17 20:23:58 PST 2016; root:xnu-3789.31.2~1/RELEASE_X86_64 x86_64\r\n* **Subsystem**: url\r\n\r\n<!-- Enter your issue details below this comment. -->\r\n\r\nExecuting:\r\n\r\n```js\r\nconst { URL } = require('url');\r\nnew URL('http://1234.com');\r\nnew URL('http://123456789.com');\r\n```\r\n\r\nall throw\r\n\r\n```\r\nTypeError: Invalid URL\r\n    at Object.URL.binding.parse (internal/url.js:85:17)\r\n    at new URL (internal/url.js:81:13)\r\n    at repl:1:1\r\n    at realRunInThisContextScript (vm.js:22:35)\r\n    at sigintHandlersWrap (vm.js:98:12)\r\n    at ContextifyScript.Script.runInThisContext (vm.js:24:12)\r\n    at REPLServer.defaultEval (repl.js:346:29)\r\n    at bound (domain.js:280:14)\r\n    at REPLServer.runBound [as eval] (domain.js:293:12)\r\n    at REPLServer.onLine (repl.js:545:10)\r\n```\r\n\r\nall following work without a problem:\r\n\r\n```js\r\nconst { URL } = require('url');\r\nnew URL('http://123.com');\r\nnew URL('http://1234567890.com');\r\n```\r\n\r\nThe bug doesn't happen in the browser. It looks like it tries to parse an IP address or something?",
+        "labels": [
+            "confirmed-bug",
+            "url",
+            "whatwg-url"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2016-12-16T17:21:12",
+        "first_answer_author": "toasohcah",
+        "first_answer_body": "Note that it affects every integer in the range `[256, 999999999]`:\r\n\r\n```\r\n> new (require(\"url\").URL)('http://255.com/')\r\nURL {\r\n> new (require(\"url\").URL)('http://256.com/')\r\nTypeError: Invalid URL\r\n> new (require(\"url\").URL)('http://999999999.com/')\r\nTypeError: Invalid URL\r\n> new (require(\"url\").URL)('http://1000000000.com/')\r\nURL {\r\n```",
+        "first_answer_creation_time": "2016-12-16T17:49:37",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "assert.deepEqual is broken?",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/5907",
+        "author_name": "mohayonao",
+        "question_body": "- Node: v5.9.1\n- Platform: Darwin 15.4.0 Darwin Kernel Version 15.4.0: Fri Feb 26 22:08:05 PST 2016; root:xnu-3248.40.184~3/RELEASE_X86_64 x86_64\n\n**Problem:**\nDoes not throw an exception, when comparing two Float32Array which have the small different values.\n\n``` js\nassert.deepEqual(new Float32Array([ 0 ]), new Float32Array([ 0.1 ]));\n// undefined (This does not throw an AssertionError?)\n```\n\nThis works as expected.\n\n``` js\nassert.deepEqual(new Float32Array([ 0 ]), new Float32Array([ 1 ]));\n// AssertionError: Float32Array { '0': 0 } deepEqual Float32Array { '0': 1 }\n//    at repl:1:8\n//    at REPLServer.defaultEval (repl.js:260:27)\n//    at bound (domain.js:287:14)\n//    at REPLServer.runBound [as eval] (domain.js:300:12)\n//    at REPLServer.<anonymous> (repl.js:429:12)\n//    at emitOne (events.js:95:20)\n//    at REPLServer.emit (events.js:182:7)\n//    at REPLServer.Interface._onLine (readline.js:211:10)\n//    at REPLServer.Interface._line (readline.js:550:8)\n//    at REPLServer.Interface._ttyWrite (readline.js:827:14)\n```\n",
+        "labels": [
+            "confirmed-bug",
+            "assert"
+        ],
+        "comments": 1,
+        "issue_creation_time": "2016-03-26T00:49:01",
+        "first_answer_author": "addaleax",
+        "first_answer_body": "This happens due to [this line](https://github.com/nodejs/node/blob/85ab4a5f1281c4e1dd06450ac7bd3250326267fa/lib/assert.js#L176), where typed arrays are converted to `Buffer` objects entry-for-entry, i.e. each entry in the source becomes one uint8 in the `Buffer`. This is not specific to floats:\n\n``` js\nassert.deepEqual(new Float32Array([ 0 ]), new Float32Array([ 255 ])) // throws\nassert.deepEqual(new Float32Array([ 0 ]), new Float32Array([ 256 ])) // passes, 256 becomes 0x00\nassert.deepEqual(new Float32Array([ 0 ]), new Float32Array([ 257 ])) // throws\n```\n\nSame with `Uint16Array` etc.\nI\u2019ll see whether I can get a fix together.\n",
+        "first_answer_creation_time": "2016-03-26T02:04:15",
+        "was_closed_after_first_comment": true
+    },
+    {
+        "title": "repl cannot handle single quote in regex, when within a function",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/5113",
+        "author_name": "phillipwei",
+        "question_body": "I'm getting a 'SyntaxError: Unexpected end of input' when I try to enter the following in the repl\n\n```\nvar someFunction = function(s) {\n    s = s.replace(/'/g, '');\n}\n```\n\nHowever, `s = s.replace(/'/g, '')` by itself on a new line is OK. Am I doing something wrong?\n",
+        "labels": [
+            "confirmed-bug",
+            "repl"
+        ],
+        "comments": 3,
+        "issue_creation_time": "2016-02-06T00:26:57",
+        "first_answer_author": "Trott",
+        "first_answer_body": "This is indeed a bug, and you're not doing anything wrong. For a quick workaround, you can use a backslash to escape the single quote in the regular expression:  `s=s.replace(/\\'/g, '');` \n\nBut yes, you shouldn't have to do that.\n",
+        "first_answer_creation_time": "2016-02-06T03:53:36",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "url.format(undefined) fails in io.js, where it works in Node.js (TypeError: Cannot read property 'auth' of undefined)",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/1033",
+        "author_name": "hairyhenderson",
+        "question_body": "In node.js (tested on v0.12.0 and v0.10.33):\n\n``` sh\n$ node -e \"console.log('%j',require('url').format(undefined))\" \n\"\"\n```\n\nIn io.js (tested on v1.4.2 and v1.0.4):\n\n``` sh\n$ node -e \"console.log('%j',require('url').format(undefined))\"\nurl.js:361\n  var auth = this.auth || '';\n                 ^\nTypeError: Cannot read property 'auth' of undefined\n    at Url.format (url.js:361:18)\n    at Object.urlFormat [as format] (url.js:356:58)\n    at [eval]:1:33\n    at Object.exports.runInThisContext (vm.js:54:17)\n    at Object.<anonymous> ([eval]-wrapper:6:22)\n    at Module._compile (module.js:444:26)\n    at evalScript (node.js:477:25)\n    at startup (node.js:73:7)\n    at node.js:863:3\n```\n\nI've dug into this a little bit, and I'm not really sure why it worked in node.js - probably something to do with different V8 versions? Even though this seems to be an edge case, this is a behaviour difference, and breaks [a unit test](https://travis-ci.org/hairyhenderson/f1foo/builds/50337033) in a project of mine.\n",
+        "labels": [
+            "confirmed-bug",
+            "url"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2015-03-03T01:50:38",
+        "first_answer_author": "tellnes",
+        "first_answer_body": "In #1036 we have decided to throw when passing invalid values to `url.format`. That means that this is working as intended except you should get another error message.\n",
+        "first_answer_creation_time": "2015-03-03T20:23:50",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "io.js's performance counters conflict with node.js's on Windows 7 x64",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/524",
+        "author_name": "seishun",
+        "question_body": "Steps to reproduce:\n1. Install Node.js v0.10.35 with at least \"Performance counters\" checked\n2. Try to install io.js v1.0.3 with at least \"Performance counters\" checked\n\nThe installer fails and rolls back. It works just fine if you run the installer again.\n\nThis doesn't happen if \"Performance counters\" is unchecked in either of the installers. Other options don't seem to make any difference.\n\nI'll try to reproduce this on a 32-bit Windows 7 when I get home.\n",
+        "labels": [
+            "confirmed-bug",
+            "windows"
+        ],
+        "comments": 2,
+        "issue_creation_time": "2015-01-20T11:34:41",
+        "first_answer_author": "piscisaureus",
+        "first_answer_body": "This is a bug.\nIt can be fixed by changing one of the GUIDs in [this file](https://github.com/iojs/io.js/blob/v1.x/src/res/node_perfctr_provider.man), but I don't know which one has to change.\n",
+        "first_answer_creation_time": "2015-01-23T17:19:40",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "unable to deal with file names that have invalid encoding",
+        "repo_name": "nodejs/node",
+        "url": "https://github.com/nodejs/node/issues/128",
+        "author_name": "andrewrk",
+        "question_body": "There is a file in my user's file system and io.js cannot use any of the fs API on it, because the file name has an invalid encoding. File names are byte arrays; not strings. This is the root of the problem.\n\nhttps://github.com/andrewrk/groovebasin/issues/383\n\nHow to reproduce (use linux):\n\n```\n$ wget https://s3.amazonaws.com/superjoe/temp/encoding-test.tar.gz\n$ tar xvf encoding-test.tar.gz \nencoding-test/\nencoding-test/test.js\nencoding-test/dir/\nencoding-test/dir/\\377\n$ cd encoding-test/\n$ cat test.js\nvar fs = require('fs');\nvar path = require('path');\nvar dir = 'dir/';\nvar list = fs.readdirSync(dir);\nvar filename = path.join(dir, list[0]);\nconsole.log(filename);\nconsole.log(fs.lstatSync(filename));\n$ node test.js \ndir/\ufffd\n\nfs.js:688\n  return binding.lstat(pathModule._makeLong(path));\n                 ^\nError: ENOENT, no such file or directory 'dir/\ufffd'\n    at Object.fs.lstatSync (fs.js:688:18)\n    at Object.<anonymous> (/home/andy/Downloads/encoding-test/test.js:7:16)\n    at Module._compile (module.js:456:26)\n    at Object.Module._extensions..js (module.js:474:10)\n    at Module.load (module.js:356:32)\n    at Function.Module._load (module.js:312:12)\n    at Function.Module.runMain (module.js:497:10)\n    at startup (node.js:119:16)\n    at node.js:906:3\n```\n",
+        "labels": [
+            "confirmed-bug",
+            "fs"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2014-12-09T17:49:55",
+        "first_answer_author": "bnoordhuis",
+        "first_answer_body": "It's a known issue, see e.g. joyent/node#2387.  (There is another, older issue but I can't find it just now.)\n\nThere is currently no workaround.  Fixing it probably entails rewriting src/node_file.cc and lib/fs.js to accept both buffers and strings (and, perhaps, typed arrays.)\n\nMost platforms treat file paths as byte arrays but Windows and OS X do not; I'm not sure if that would affect node.js but it's something to keep in mind.  It's possible that the Windows port of libuv already takes care of all the details but the OS X port most assuredly does not.\n\nAt any rate, pull requests are welcome!\n",
+        "first_answer_creation_time": "2014-12-09T19:31:28",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "\"Template reference variables\" topic does not have active state in navigation",
+        "repo_name": "angular/angular",
+        "url": "https://github.com/angular/angular/issues/51242",
+        "author_name": "tkolok",
+        "question_body": "### Describe the problem that you experienced\n\nWhen you visit the [Template reference variables](https://angular.io/guide/template-reference-variables) topic, its related link is not active in the navigation (The `.selected` class is missing).\n\n### Enter the URL of the topic with the problem\n\nhttps://angular.io/guide/template-reference-variables\n\n### Describe what you were looking for in the documentation\n\n_No response_\n\n### Describe the actions that led you to experience the problem\n\n_No response_\n\n### Describe what you want to experience that would fix the problem\n\n_No response_\n\n### Add a screenshot if that helps illustrate the problem\n\n![image](https://github.com/angular/angular/assets/12582532/24edcf85-003a-4a8c-8f2c-f8ac40ed0065)\r\n\n\n### If this problem caused an exception or error, please paste it here\n\n_No response_\n\n### If the problem is browser-specific, please specify the device, OS, browser, and version\n\n_No response_\n\n### Provide any additional information here in as much as detail as you can\n\n_No response_",
+        "labels": [
+            "P4",
+            "bug"
+        ],
+        "comments": 4,
+        "issue_creation_time": "2023-08-01T18:40:23",
+        "first_answer_author": "JeanMeche",
+        "first_answer_body": "I can't reproduce that issue on a Chrome M115. \r\n\r\nDo you have this issue on navigation or on a fresh loading (F5) ? ",
+        "first_answer_creation_time": "2023-08-01T21:04:30",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "DevTools: Variables initialized to undefined appearing as [setter] in property inspector",
+        "repo_name": "angular/angular",
+        "url": "https://github.com/angular/angular/issues/45888",
+        "author_name": "AleksanderBodurri",
+        "question_body": "### Description\r\n\r\nWhen a variable is initialized in a directive or component as `undefined`, it appears in the component inspector as `[setter]`.\r\nThis should be displaying as `undefined`\r\n<img width=\"840\" alt=\"Screen Shot 2022-05-04 at 10 28 12 PM\" src=\"https://user-images.githubusercontent.com/39253660/166855602-faa7ee69-f2b7-422a-8a11-eb8010a61f4c.png\">\r\n\r\n\r\n### Proposed solution\r\n\r\nCorrect the logic in \r\nhttps://github.com/angular/angular/blob/main/devtools/projects/ng-devtools-backend/src/lib/state-serializer/serialized-descriptor-factory.ts\r\nthat determines property descriptors so that this bug does not happen anymore.\r\n",
+        "labels": [
+            "good first issue",
+            "area: devtools",
+            "bug"
+        ],
+        "comments": 3,
+        "issue_creation_time": "2022-05-05T02:30:12",
+        "first_answer_author": "Ahm3rIjaz",
+        "first_answer_body": "Hi,\r\n\r\nI am willing to fix this issue. Just want to ask that the tests also need to change after the fix or the tests remain same?",
+        "first_answer_creation_time": "2022-05-06T18:43:59",
+        "was_closed_after_first_comment": false
+    },
+    {
+        "title": "Renderer2 previousSilbing does not exist.",
+        "repo_name": "angular/angular",
+        "url": "https://github.com/angular/angular/issues/48098",
+        "author_name": "Shaharamir",
+        "question_body": "### Which @angular/* package(s) are the source of the bug?\n\ncore\n\n### Is this a regression?\n\nNo\n\n### Description\n\nI'm using Renderer2, and unfortunately, there is no option for previousSilbing property despite nextSibling is exist.\r\n\r\nhttps://developer.mozilla.org/en-US/docs/Web/API/Node/previousSibling\r\n\r\n\n\n### Please provide a link to a minimal reproduction of the bug\n\nTry to access renderer previousSilbing, not exist\n\n### Please provide the exception or error you saw\n\n_No response_\n\n### Please provide the environment you discovered this bug in (run `ng version`)\n\n_No response_\n\n### Anything else?\n\n_No response_",
+        "labels": [
+            "feature",
+            "area: core",
+            "core: DOM rendering",
+            "feature: votes required"
+        ],
+        "comments": 3,
+        "issue_creation_time": "2022-11-17T07:13:05",
+        "first_answer_author": "angular-robot[bot]",
+        "first_answer_body": "<!-- 6374bc4f-3ca6-4ebb-b416-250033c91ab5 -->\nThis feature request is now candidate for our backlog! In the next phase, the community has 60 days to upvote. If the request receives more than 20 upvotes, we'll move it to our consideration list.\n\nYou can find more details about the feature request process in our [documentation](https://github.com/angular/angular/blob/e29eb8abfbfdfb793e08ac88e14b7ba6d2ff2136/docs/GITHUB_PROCESS.md#feature-request-process).",
+        "first_answer_creation_time": "2022-11-18T14:01:51",
+        "was_closed_after_first_comment": false
+    }
+]
